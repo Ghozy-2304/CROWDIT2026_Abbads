@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nusantara Learn — Discover Indonesia Through Culture</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
+          figtree: ['Figtree', 'sans-serif'],
+        },
+        colors: {
+          brand: {
+            red:    '#C94B2C',
+            redDark:'#A83822',
+            orange: '#E05C3A',
+          },
+          card: {
+            red:   '#FDECEA',
+            amber: '#FEF5E7',
+            fire:  '#FDECEA',
+            teal:  '#EAF2F0',
+          }
+        },
+        keyframes: {
+          floatY: {
+            '0%,100%': { transform: 'translateY(0px)' },
+            '50%':     { transform: 'translateY(-10px)' },
+          },
+          fadeUp: {
+            '0%':   { opacity: '0', transform: 'translateY(24px)' },
+            '100%': { opacity: '1', transform: 'translateY(0)' },
+          }
+        },
+        animation: {
+          float1: 'floatY 3s ease-in-out infinite',
+          float2: 'floatY 3s ease-in-out infinite 1.5s',
+          fadeUp: 'fadeUp 0.7s ease forwards',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Figtree', sans-serif; background: #FFF9F2; overflow-x: hidden; }
+  h1,h2,h3,.font-title { font-family: 'Plus Jakarta Sans', sans-serif !important; }
+
+  /* hero bg gradient — matches reference: soft warm white/cream left, peach/salmon glow top-right */
+  .hero-section {
+    background:
+      radial-gradient(ellipse 55% 70% at 100% 0%, rgba(230,130,100,0.22) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 50% at 0% 100%, rgba(180,220,200,0.15) 0%, transparent 60%),
+      #f8f6f2;
+  }
+
+  /* cards section bg — same warm light gradient */
+  .cards-section {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 50%, rgba(230,130,100,0.10) 0%, transparent 70%),
+      #f8f6f2;
+  }
+
+  /* card 1 — Learning Progress: very soft pink/red bg */
+  .card-learning {
+    background: linear-gradient(145deg, #FDE8E4 0%, #FAD8D0 100%);
+  }
+  /* card 2 — XP Level: very soft warm amber/cream */
+  .card-xp {
+    background: linear-gradient(145deg, #FEF0E0 0%, #FDE4C4 100%);
+  }
+  /* card 3 — Current Streak: same soft pink/red */
+  .card-streak {
+    background: linear-gradient(145deg, #FDE8E4 0%, #FAD8D0 100%);
+  }
+  /* card 4 — Province: soft sage/teal */
+  .card-province {
+    background: linear-gradient(145deg, #E8F2EE 0%, #D4E8DF 100%);
+  }
+
+  /* icon circles */
+  .icon-red    { background: #D94F2E; }
+  .icon-amber  { background: #D4901C; }
+  .icon-fire   { background: #D94F2E; }
+  .icon-teal   { background: #2E7D6A; }
+
+  /* progress bar base */
+  .progress-track {
+    background: rgba(0,0,0,0.12);
+    height: 6px;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .progress-fill-red   { background: #C94B2C; height: 100%; border-radius: 999px; }
+  .progress-fill-amber { background: #C94B2C; height: 100%; border-radius: 999px; }
+  .progress-fill-fire  { background: #C94B2C; height: 100%; border-radius: 999px; }
+  .progress-fill-teal  { background: #C94B2C; height: 100%; border-radius: 999px; }
+
+  /* reveal animation */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* nav pill active */
+  .nav-pill-active { background: #C94B2C; color: #fff !important; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+<nav class="sticky top-0 z-50 border-b border-gray-200/70 bg-white/80 backdrop-blur-xl py-[12px]">
+  <div class="max-w-[1280px] mx-auto px-8 h-16 flex items-center justify-between">
+
+    <!-- Logo -->
+    <!-- <span class="font-title font-bold text-[1.25rem] text-gray-900 tracking-tight">Logo</span> -->
+     <img class="w-[175px]" src="resource/Logo.png" alt="">
+
+    <!-- Nav links pill -->
+    <div class="flex items-center gap-1 bg-white border border-gray-200 rounded-full px-1.5 py-1.5 shadow-sm">
+      <a href="#" class="nav-pill-active font-title font-semibold text-sm px-5 py-1.5 rounded-full transition-all duration-200">Home</a>
+      <a href="#" class="font-title font-medium text-sm text-gray-600 px-5 py-1.5 rounded-full hover:bg-gray-100 transition-all duration-200">Activity</a>
+      <a href="#" class="font-title font-medium text-sm text-gray-600 px-5 py-1.5 rounded-full hover:bg-gray-100 transition-all duration-200">Class</a>
+      <a href="#" class="font-title font-medium text-sm text-gray-600 px-5 py-1.5 rounded-full hover:bg-gray-100 transition-all duration-200">Article</a>
+      <a href="#" class="font-title font-medium text-sm text-gray-600 px-5 py-1.5 rounded-full hover:bg-gray-100 transition-all duration-200">Folklore</a>
+    </div>
+
+    <!-- Right side -->
+    <div class="flex items-center gap-3">
+      <!-- Search -->
+      <button class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:border-gray-300 transition-all">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <!-- XP badge -->
+      <div class="flex items-center gap-1.5 bg-[#FEF5E7] border border-[#F5D08A] text-[#7A5010] text-xs font-semibold font-title px-3.5 py-1.5 rounded-full">
+        <span>🔥</span>
+        <span>2,480 XP</span>
+      </div>
+      <!-- Bell -->
+      <button class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:border-gray-300 transition-all">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      </button>
+      <!-- Avatar -->
+           <img class="w-9 h-9" src="resource/pp-rama.png" alt="">
+
+    </div>
+
+  </div>
+</nav>
+
+<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+<section class="hero-section min-h-[calc(100vh-64px)]">
+  <div class="max-w-[1280px] justify-between mx-[160px] grid grid-cols-2 justify-between items-center py-[110px] min-h-[calc(100vh-64px)]">
+
+    <!-- Left -->
+    <div class="pr-12 reveal" id="hero-left">
+      <!-- Greeting pill -->
+      <div class="inline-flex items-center gap-2 bg-white/80 border border-gray-200 text-gray-500 text-[0.78rem] font-semibold font-title px-4 py-1.5 rounded-full mb-6">
+        <span>✨</span>
+        <span>Welcome Back, Rama 👋</span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="font-title font-extrabold text-[3.4rem] leading-[1.08] tracking-tight text-gray-900 mb-5">
+        Discover <span class="text-[#C94B2C]">Indonesia</span><br>
+        Through Culture
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-gray-500 text-[1rem] leading-[1.75] max-w-[430px] mb-8">
+        Explore traditions, folklore, food, dances, and history through fun and
+        interactive learning experiences designed for the next generation.
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="flex items-center gap-3 mb-9">
+        <a href="#" class="font-title inline-flex items-center gap-2 bg-[#C94B2C] hover:bg-[#b03d22] text-white font-bold text-[0.875rem] px-6 py-3 rounded-full transition-all duration-200 shadow-[0_4px_20px_rgba(201,75,44,0.32)] hover:shadow-[0_6px_28px_rgba(201,75,44,0.42)] hover:-translate-y-0.5 group">
+          Start Learning
+          <span class="inline-block transition-transform group-hover:translate-x-1">→</span>
+        </a>
+        <a href="#" class="font-title inline-flex items-center gap-2 bg-transparent border-[1.5px] border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white font-semibold text-[0.875rem] px-6 py-[11px] rounded-full transition-all duration-200">
+          Explore Folklore
+        </a>
+      </div>
+
+      <!-- Streak & Level stats -->
+      <div class="flex gap-3">
+        <!-- Streak -->
+        <div class="flex items-center gap-2.5 bg-white rounded-full px-4 py-2.5 shadow-sm">
+          <div class="w-9 h-9 rounded-full bg-[#FDE8E4] flex items-center justify-center text-base flex-shrink-0">🔥</div>
+          <div>
+            <div class="font-title text-[0.62rem] font-bold text-gray-400 uppercase tracking-widest leading-none mb-0.5">STREAK</div>
+            <div class="font-title text-[0.85rem] font-bold text-gray-900 flex items-center gap-1">7 Day Streak 🔥</div>
+          </div>
+        </div>
+        <!-- Level -->
+        <div class="flex items-center gap-2.5 bg-white rounded-full px-4 py-2.5 shadow-sm">
+          <div class="w-9 h-9 rounded-full bg-[#FEF0E0] flex items-center justify-center text-base flex-shrink-0">🏅</div>
+          <div>
+            <div class="font-title text-[0.62rem] font-bold text-gray-400 uppercase tracking-widest leading-none mb-0.5">LEVEL</div>
+            <div class="font-title text-[0.85rem] font-bold text-gray-900">Level 5 · Explorer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right — Image placeholder + floating badges -->
+    <div class="relative flex items-center justify-center h-[520px]">
+
+      <!-- Floating badge top-left (+50 XP) -->
+      <div class="animate-float1 absolute top-12 left-0 z-10 flex items-center gap-2.5 bg-white border border-gray-200 rounded-full px-3.5 py-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.10)]">
+        <div class="w-8 h-8 rounded-full bg-[#FDE8E4] flex items-center justify-center text-sm">🎭</div>
+        <div>
+          <div class="font-title font-bold text-[0.82rem] text-gray-900 leading-tight">+50 XP</div>
+          <div class="font-figtree text-[0.68rem] text-gray-400 leading-tight">Wayang quiz</div>
+        </div>
+      </div>
+
+      <!-- Main image card -->
+      <div class="w-full max-w-[460px] h-[390px] rounded-[28px] bg-gray-200/80 border border-gray-200 overflow-hidden flex items-center justify-center">
+        <div class="flex flex-col items-center gap-2 text-gray-400">
+          <!-- <span class="text-4xl">🖼️</span>
+          <span class="font-figtree text-sm font-medium">Tambahkan gambar di sini</span> -->
+          <img src="resource/Picture.png" alt="">
+        </div>
+      </div>
+
+      <!-- Floating badge bottom-right (Bali Unlocked) -->
+      <div class="animate-float2 absolute bottom-14 right-0 z-10 flex items-center gap-2.5 bg-white border border-gray-200 rounded-full px-3.5 py-2.5 shadow-[0_8px_32px_rgba(0,0,0,0.10)]">
+        <div class="w-8 h-8 rounded-full bg-[#E8F2EE] flex items-center justify-center text-sm">🗺️</div>
+        <div>
+          <div class="font-title font-bold text-[0.82rem] text-gray-900 leading-tight">Bali Unlocked</div>
+          <div class="font-figtree text-[0.68rem] text-gray-400 leading-tight">New Region</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ STAT CARDS ═══════════════════════════ -->
+<section class="cards-section pb-24">
+  <div class="max-w-[1280px] mx-auto px-8">
+    <div class="grid grid-cols-4 gap-4">
+
+      <!-- Card 1 — Learning Progress -->
+      <div class="card-learning rounded-2xl p-5 relative overflow-hidden reveal" style="transition-delay:0.06s">
+        <div class="flex items-start justify-between mb-5">
+          <div class="w-[42px] h-[42px] rounded-full icon-red flex items-center justify-center shadow-sm">
+            <!-- Book icon -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <span class="font-figtree text-[0.72rem] font-semibold text-gray-500">Today</span>
+        </div>
+        <p class="font-figtree text-[0.82rem] text-gray-600 mb-2">Learning Progress</p>
+        <p class="font-title font-extrabold text-[2rem] text-gray-900 leading-none mb-2">62%</p>
+        <p class="font-figtree text-[0.72rem] text-gray-500 mb-4">12 quizzes completed</p>
+        <div class="progress-track"><div class="progress-fill-red" style="width:62%"></div></div>
+      </div>
+
+      <!-- Card 2 — XP Level -->
+      <div class="card-xp rounded-2xl p-5 relative overflow-hidden reveal" style="transition-delay:0.12s">
+        <div class="flex items-start justify-between mb-5">
+          <div class="w-[42px] h-[42px] rounded-full icon-amber flex items-center justify-center shadow-sm">
+            <!-- Trophy icon -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+          </div>
+          <span class="font-figtree text-[0.72rem] font-semibold text-gray-500">Today</span>
+        </div>
+        <p class="font-figtree text-[0.82rem] text-gray-600 mb-2">XP Level</p>
+        <p class="font-title font-extrabold text-[2rem] text-gray-900 leading-none mb-2">Lv. 5</p>
+        <p class="font-figtree text-[0.72rem] text-gray-500 mb-4">2,480/3.000 XP</p>
+        <div class="progress-track"><div class="progress-fill-amber" style="width:82%"></div></div>
+      </div>
+
+      <!-- Card 3 — Current Streak -->
+      <div class="card-streak rounded-2xl p-5 relative overflow-hidden reveal" style="transition-delay:0.18s">
+        <div class="flex items-start justify-between mb-5">
+          <div class="w-[42px] h-[42px] rounded-full icon-fire flex items-center justify-center shadow-sm">
+            <!-- Flame icon -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+          </div>
+          <span class="font-figtree text-[0.72rem] font-semibold text-gray-500">Today</span>
+        </div>
+        <p class="font-figtree text-[0.82rem] text-gray-600 mb-2">Current Streak</p>
+        <p class="font-title font-extrabold text-[2rem] text-gray-900 leading-none mb-2">7 days</p>
+        <p class="font-figtree text-[0.72rem] text-gray-500 mb-4">Personal best: 12</p>
+        <div class="progress-track"><div class="progress-fill-fire" style="width:58%"></div></div>
+      </div>
+
+      <!-- Card 4 — Province Explored -->
+      <div class="card-province rounded-2xl p-5 relative overflow-hidden reveal" style="transition-delay:0.24s">
+        <div class="flex items-start justify-between mb-5">
+          <div class="w-[42px] h-[42px] rounded-full icon-teal flex items-center justify-center shadow-sm">
+            <!-- Map pin icon -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 8v1"/><path d="M12 15v1"/><path d="M8 12H7"/><path d="M17 12h-1"/></svg>
+          </div>
+          <span class="font-figtree text-[0.72rem] font-semibold text-gray-500">Today</span>
+        </div>
+        <p class="font-figtree text-[0.82rem] text-gray-600 mb-2">Province Explored</p>
+        <p class="font-title font-extrabold text-[2rem] text-gray-900 leading-none mb-2">7/38</p>
+        <p class="font-figtree text-[0.72rem] text-gray-500 mb-4">Last: Yogyakarta</p>
+        <div class="progress-track"><div class="progress-fill-teal" style="width:18%"></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CONTINUE LEARNING SECTION ═══════════════ -->
+<section class="px-8 pt-12 pb-10 max-w-[1080px] mx-auto">
+
+  <!-- Section header -->
+  <div class="flex items-end justify-between mb-5">
+    <div>
+      <p class="font-figtree text-[0.78rem] font-semibold text-[#C94B2C] mb-1">Pick up where you left off</p>
+      <h2 class="font-jakarta font-bold text-[1.75rem] text-gray-900 leading-tight">Continue Learning</h2>
+    </div>
+    <a href="#" class="font-figtree text-[0.85rem] text-gray-500 hover:text-gray-800 transition-colors">View All</a>
+  </div>
+
+  <!-- Cards grid -->
+  <div class="grid grid-cols-3 gap-5">
+
+    <!-- Card 1 — Traditional House Quiz -->
+    <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+      <!-- Image area -->
+      <div class="relative h-[185px] bg-gray-200">
+        <img src="resource/Card-1.png" class="w-full h-full object-cover">
+        <!-- Time badge -->
+        <div class="absolute top-3 left-3 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-gray-700 text-[0.7rem] font-semibold font-figtree px-2.5 py-1 rounded-full shadow-sm">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          5 min left
+        </div>
+      </div>
+      <!-- Card body -->
+      <div class="px-4 py-4">
+        <p class="font-figtree text-[0.72rem] font-semibold text-[#C94B2C] mb-1">Chapter 3 · Architecture</p>
+        <p class="font-jakarta font-bold text-[1rem] text-gray-900 mb-3 leading-snug">Traditional House Quiz</p>
+        <!-- Progress -->
+        <div class="flex items-center gap-2.5">
+          <div class="flex-1 h-[5px] bg-gray-100 rounded-full overflow-hidden">
+            <div class="h-full bg-[#C94B2C] rounded-full" style="width:80%"></div>
+          </div>
+          <span class="font-figtree text-[0.72rem] text-gray-500 font-semibold flex-shrink-0">80%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 — The Story of Timun Mas -->
+    <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+      <div class="relative h-[185px] bg-gray-200">
+        <img src="resource/Card-2.png" class="w-full h-full object-cover">
+        <div class="absolute top-3 left-3 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-gray-700 text-[0.7rem] font-semibold font-figtree px-2.5 py-1 rounded-full shadow-sm">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          25 min left
+        </div>
+      </div>
+      <div class="px-4 py-4">
+        <p class="font-figtree text-[0.72rem] font-semibold text-[#C94B2C] mb-1">Folklore · Central Java</p>
+        <p class="font-jakarta font-bold text-[1rem] text-gray-900 mb-3 leading-snug">The Story of Timun Mas</p>
+        <div class="flex items-center gap-2.5">
+          <div class="flex-1 h-[5px] bg-gray-100 rounded-full overflow-hidden">
+            <div class="h-full bg-[#C94B2C] rounded-full" style="width:47%"></div>
+          </div>
+          <span class="font-figtree text-[0.72rem] text-gray-500 font-semibold flex-shrink-0">47%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 — Indonesian Dance Basics -->
+    <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+      <div class="relative h-[185px] bg-gray-200">
+        <img src="resource/Card-3.png" class="w-full h-full object-cover">
+        <div class="absolute top-3 left-3 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-gray-700 text-[0.7rem] font-semibold font-figtree px-2.5 py-1 rounded-full shadow-sm">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          11 min left
+        </div>
+      </div>
+      <div class="px-4 py-4">
+        <p class="font-figtree text-[0.72rem] font-semibold text-[#C94B2C] mb-1">Lesson 4 · Performance</p>
+        <p class="font-jakarta font-bold text-[1rem] text-gray-900 mb-3 leading-snug">Indonesian Dance Basics</p>
+        <div class="flex items-center gap-2.5">
+          <div class="flex-1 h-[5px] bg-gray-100 rounded-full overflow-hidden">
+            <div class="h-full bg-[#C94B2C] rounded-full" style="width:73%"></div>
+          </div>
+          <span class="font-figtree text-[0.72rem] text-gray-500 font-semibold flex-shrink-0">73%</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ TODAY'S CHALLENGE SECTION ═══════════════ -->
+<section style="font-family:'Figtree',sans-serif;" class="px-8 pt-8 pb-20 max-w-[1080px] mx-auto">
+
+  <!-- Google Fonts -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap');
+    .font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-figtree  { font-family: 'Figtree', sans-serif; }
+  </style>
+
+  <!-- Section header -->
+  <div class="flex items-end justify-between mb-5">
+    <div>
+      <p class="font-figtree text-[0.78rem] font-semibold text-[#C94B2C] mb-0.5">Daily Quest</p>
+      <h2 class="font-jakarta font-bold text-[1.75rem] text-gray-900 leading-tight">Today's Challenge</h2>
+    </div>
+    <a href="#" class="font-figtree text-[0.85rem] text-gray-500 hover:text-gray-800 transition-colors">View All</a>
+  </div>
+
+  <!-- Challenge cards grid -->
+  <div class="grid grid-cols-3 gap-4">
+
+    <!-- ── Card 1: Complete 2 quizzes (soft red/pink) ── -->
+    <div class="rounded-2xl p-5 flex flex-col" style="background:#FDEAE4;">
+      <!-- Top row: icon + streak badge -->
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-full bg-[#C94B2C] flex items-center justify-center flex-shrink-0">
+          <!-- Bolt / lightning -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <span class="font-figtree text-[0.7rem] font-semibold text-gray-600 bg-white/70 px-2.5 py-[4px] rounded-full leading-none"><span class="text-[#D33F1D]">2x</span> streak</span>
+      </div>
+
+      <!-- Label + title -->
+      <p class="font-figtree text-[0.73rem] text-gray-500 mb-1">Today's quest</p>
+      <p class="font-jakarta font-bold text-[1.05rem] text-gray-900 leading-snug mb-6">Complete 2 quizzes</p>
+
+      <!-- Bottom row: XP · bar · count · button — all in one line -->
+      <!-- Bottom row: [div(XP + count | progressbar)] + [button] -->
+  <div class="mt-auto flex items-center gap-3">
+    
+    <!-- Wrapper div kiri -->
+    <div class="flex-1 flex flex-col gap-1.5">
+      <!-- Row 1: XP dan 1/2 justify-between -->
+      <div class="flex items-center justify-between">
+        <span class="font-jakarta font-bold text-[0.8rem] text-[#C94B2C]">+80 XP</span>
+        <span class="font-figtree text-[0.72rem] text-gray-400 font-medium">1/2</span>
+      </div>
+      <!-- Row 2: Progress bar -->
+      <div class="h-[5px] rounded-full overflow-hidden" style="background:rgba(0,0,0,0.10);">
+        <div class="h-full rounded-full bg-[#C94B2C]" style="width:50%;"></div>
+      </div>
+    </div>
+
+    <!-- Button di samping -->
+    <button class="font-jakarta font-bold text-[0.82rem] text-white bg-gray-900 hover:bg-gray-700 active:scale-95 px-5 py-2 rounded-full transition-all flex-shrink-0">Start</button>
+
+  </div>
+    </div>
+
+    <!-- ── Card 2: Explore 1 Folklore Story (soft teal) ── -->
+    <div class="rounded-2xl p-5 flex flex-col" style="background:#E4EFF0;">
+      <!-- Top row -->
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-full bg-[#2A7A6E] flex items-center justify-center flex-shrink-0">
+          <!-- Book / save icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+            <polyline points="17 21 17 13 7 13 7 21"/>
+            <polyline points="7 3 7 8 15 8"/>
+          </svg>
+        </div>
+        <span class="font-figtree text-[0.7rem] font-semibold text-gray-600 bg-white/70 px-2.5 py-[4px] rounded-full leading-none"><span class="text-[#D33F1D]">1.5x</span>  streak</span>
+      </div>
+
+      <p class="font-figtree text-[0.73rem] text-gray-500 mb-1">Read until the end</p>
+      <p class="font-jakarta font-bold text-[1.05rem] text-gray-900 leading-snug mb-6">Explore 1 Folklore Story</p>
+
+      <!-- Bottom row -->
+      <div class="mt-auto flex items-center gap-3">
+        <!-- Wrapper div kiri -->
+    <div class="flex-1 flex flex-col gap-1.5">
+      <!-- Row 1: XP dan 1/2 justify-between -->
+      <div class="flex items-center justify-between">
+        <span class="font-jakarta font-bold text-[0.8rem] text-[#C94B2C] flex-shrink-0">+60 XP</span>
+        <span class="font-figtree text-[0.72rem] text-gray-400 font-medium flex-shrink-0">0/1</span>
+      </div>
+      <!-- Row 2: Progress bar -->
+      <div class="h-[5px] rounded-full overflow-hidden" style="background:rgba(0,0,0,0.10);">
+        <div class="h-full rounded-full bg-[#C94B2C]" style="width:0%;"></div>
+      </div>
+    </div>
+
+    <!-- Button di samping -->
+    <button class="font-jakarta font-bold text-[0.82rem] text-white bg-gray-900 hover:bg-gray-700 active:scale-95 px-5 py-2 rounded-full transition-all flex-shrink-0">Start</button>
+      </div>
+    </div>
+
+    <!-- ── Card 3: Read 1 Cultural Article (warm sand/beige, completed) ── -->
+    <div class="rounded-2xl p-5 flex flex-col" style="background:#F2E3CE;">
+      <!-- Top row -->
+      <div class="flex items-start justify-between mb-5">
+        <div class="w-11 h-11 rounded-full bg-[#D4921A] flex items-center justify-center flex-shrink-0">
+          <!-- Document icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+        </div>
+        <span class="font-figtree text-[0.7rem] font-semibold text-gray-600 bg-white/70 px-2.5 py-[4px] rounded-full leading-none"><span class="text-[#D33F1D]">1x</span>  streak</span>
+      </div>
+
+      <p class="font-figtree text-[0.73rem] text-gray-500 mb-1">Any category</p>
+      <p class="font-jakarta font-bold text-[1.05rem] text-gray-900 leading-snug mb-6">Read 1 Cultural Article</p>
+
+      <!-- Bottom row — completed: green check button -->
+      <div class="mt-auto flex items-center gap-3">
+        <div class="flex-1 flex flex-col gap-1.5">
+      <!-- Row 1: XP dan 1/2 justify-between -->
+      <div class="flex items-center justify-between">
+        <span class="font-jakarta font-bold text-[0.8rem] text-[#C94B2C] flex-shrink-0">+40 XP</span>
+        <span class="font-figtree text-[0.72rem] text-gray-400 font-medium flex-shrink-0">1/1</span>
+      </div>
+      <!-- Row 2: Progress bar -->
+      <div class="h-[5px] rounded-full overflow-hidden" style="background:rgba(0,0,0,0.10);">
+        <div class="h-full rounded-full bg-[#C94B2C]" style="width:100%;"></div>
+      </div>
+    </div>
+        <!-- Completed = green circle checkmark -->
+        <button class="w-9 h-9 rounded-full bg-[#22C47A] flex items-center justify-center flex-shrink-0 shadow-sm">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ RECOMMENDED QUIZZES ═══════════════ -->
+<section class="px-8 pt-10 pb-10 max-w-[1080px] mx-auto">
+
+  <!-- Section header -->
+  <div class="flex items-end justify-between mb-5">
+    <div>
+      <p class="font-figtree text-[0.78rem] font-semibold text-[#C94B2C] mb-0.5">Tailored For You</p>
+      <h2 class="font-jakarta font-bold text-[1.75rem] text-gray-900 leading-tight">Recommended Quizzes</h2>
+    </div>
+    <a href="#" class="font-figtree text-[0.85rem] text-gray-500 hover:text-gray-800 transition-colors">View All</a>
+  </div>
+
+  <!-- Quiz cards -->
+  <div class="grid grid-cols-3 gap-5">
+
+    <!-- Card 1 -->
+    <div class="bg-white rounded-2xl overflow-hidden">
+      <!-- Image -->
+      <div class="relative h-[160px] bg-gray-200 flex items-center justify-center">
+        <!-- Replace with <img src="..." class="w-full h-full object-cover"> -->
+        <img src="resource/Quiz-1.png" class="w-full h-full object-cover">
+        <!-- Left badge: players -->
+        <div class="absolute top-2.5 left-2.5 flex items-center gap-1 bg-black/40 backdrop-blur-sm text-white text-[0.65rem] font-semibold font-figtree px-2 py-1 rounded-full">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          12.54k
+        </div>
+        <!-- Right badge: difficulty -->
+        <div class="absolute top-2.5 right-2.5 bg-[#CBF7CB] text-[#00AA00] text-[0.65rem] font-bold font-figtree px-2.5 py-1 rounded-full">Easy</div>
+      </div>
+      <!-- Body -->
+      <div class="px-4 py-3.5">
+        <p class="font-jakarta font-bold text-[0.95rem] text-gray-900 leading-snug mb-2">Guess Indonesian Traditional Foods</p>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="font-figtree text-[0.72rem] text-gray-400">16 Questions</span>
+          <span class="font-jakarta font-bold text-[0.72rem] text-[#C94B2C]">+60 XP</span>
+        </div>
+        <hr>
+        <button class="w-full bg-[#C94B2C] hover:bg-[#b03d22] text-white font-jakarta font-bold text-[0.85rem] py-2.5 rounded-full transition-colors mt-4">Play Now</button>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="bg-white rounded-2xl overflow-hidden">
+      <div class="relative h-[160px] bg-gray-200 flex items-center justify-center">
+        <img src="resource/Quiz-2.png" class="w-full h-full object-cover">
+        <div class="absolute top-2.5 left-2.5 flex items-center gap-1 bg-black/40 backdrop-blur-sm text-white text-[0.65rem] font-semibold font-figtree px-2 py-1 rounded-full">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          820
+        </div>
+        <div class="absolute top-2.5 right-2.5 bg-[#FEE4E2] text-[#D92D21] text-[0.65rem] font-bold font-figtree px-2.5 py-1 rounded-full">Hard</div>
+      </div>
+      <div class="px-4 pt-3 pb-4">
+        <p class="font-jakarta font-bold text-[0.95rem] text-gray-900 leading-snug mb-2">Traditional House Challenge</p>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="font-figtree text-[0.72rem] text-gray-400">22 Questions</span>
+          <span class="font-jakarta font-bold text-[0.72rem] text-[#C94B2C]">+80 XP</span>
+        </div>
+        <hr>
+        <button class="w-full bg-[#C94B2C] hover:bg-[#b03d22] text-white font-jakarta font-bold text-[0.85rem] py-2.5 rounded-full transition-colors mt-4">Play Now</button>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="bg-white rounded-2xl overflow-hidden">
+      <div class="relative h-[160px] bg-gray-200 flex items-center justify-center">
+        <img src="resource/Quiz-3.png" class="w-full h-full object-cover">
+        <div class="absolute top-2.5 left-2.5 flex items-center gap-1 bg-black/40 backdrop-blur-sm text-white text-[0.65rem] font-semibold font-figtree px-2 py-1 rounded-full">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          2.32k
+        </div>
+        <div class="absolute top-2.5 right-2.5 bg-[#FEF1C6] text-[#DC6903] text-[0.65rem] font-bold font-figtree px-2.5 py-1 rounded-full">Medium</div>
+      </div>
+      <div class="px-4 pt-3 pb-4">
+        <p class="font-jakarta font-bold text-[0.95rem] text-gray-900 leading-snug mb-1">Indonesian Dance Quiz</p>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="font-figtree text-[0.72rem] text-gray-400">10 Questions</span>
+          <span class="font-jakarta font-bold text-[0.72rem] text-[#C94B2C]">+40 XP</span>
+        </div>
+        <hr>
+        <button class="w-full bg-[#C94B2C] hover:bg-[#b03d22] text-white font-jakarta font-bold text-[0.85rem] py-2.5 rounded-full transition-colors mt-4">Play Now</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════ FEATURED FOLKLORE ═══════════════ -->
+<section class="px-8 pt-10 pb-20 max-w-[1080px] mx-auto">
+
+  <!-- Section header -->
+  <div class="flex items-end justify-between mb-5">
+    <div>
+      <p class="font-figtree text-[0.78rem] font-semibold text-[#C94B2C] mb-0.5">Stories Of The Archipelago</p>
+      <h2 class="font-jakarta font-bold text-[1.75rem] text-gray-900 leading-tight">Featured Folklore</h2>
+    </div>
+    <a href="#" class="font-figtree text-[0.85rem] text-gray-500 hover:text-gray-800 transition-colors">View All</a>
+  </div>
+
+  <!-- Folklore cards -->
+  <div class="grid grid-cols-3 gap-5">
+
+    <!-- Card 1 — Timun Mas -->
+    <div class="bg-white rounded-2xl overflow-hidden">
+      <!-- Image area -->
+      <div class="relative h-[185px] bg-gray-200 flex items-center justify-center">
+        <!-- Replace with <img src="..." class="w-full h-full object-cover rounded-t-2xl"> -->
+        <img src="resource/Story-1.png" class="w-full h-full object-cover rounded-t-2xl">
+        <!-- Duration badge — bottom right -->
+        <div class="absolute bottom-2.5 right-2.5 bg-black/50 backdrop-blur-sm text-white text-[0.65rem] font-semibold font-figtree px-2 py-0.5 rounded-md">8:09</div>
+      </div>
+      <!-- Body -->
+      <div class="px-3.5 py-3 flex items-center justify-between">
+        <div>
+          <p class="font-jakarta font-bold text-[0.95rem] text-gray-900 leading-snug mb-2">Timun Mas</p>
+          <div class="flex items-center gap-1 text-gray-400">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="font-figtree text-[0.72rem]">Central Java</span>
+          </div>
+        </div>
+        <!-- Three dots menu -->
+        <button class="text-gray-400 hover:text-gray-600 p-1 transition-colors">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 2 — Malin Kundang -->
+    <div class="bg-white rounded-2xl overflow-hidden">
+      <div class="relative h-[185px] bg-gray-200 flex items-center justify-center">
+        <img src="resource/Story-2.png" class="w-full h-full object-cover rounded-t-2xl">
+        <div class="absolute bottom-2.5 right-2.5 bg-black/50 backdrop-blur-sm text-white text-[0.65rem] font-semibold font-figtree px-2 py-0.5 rounded-md">14:23</div>
+      </div>
+      <div class="px-3.5 py-3 flex items-center justify-between">
+        <div>
+          <p class="font-jakarta font-bold text-[0.95rem] text-gray-900 leading-snug mb-0.5">Malin Kundang</p>
+          <div class="flex items-center gap-1 text-gray-400">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="font-figtree text-[0.72rem]">West Sumatra</span>
+          </div>
+        </div>
+        <button class="text-gray-400 hover:text-gray-600 p-1 transition-colors">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 3 — Sangkuriang -->
+    <div class="bg-white rounded-2xl overflow-hidden">
+      <div class="relative h-[185px] bg-gray-200 flex items-center justify-center">
+        <img src="resource/Story-3.png" class="w-full h-full object-cover rounded-t-2xl">
+        <div class="absolute bottom-2.5 right-2.5 bg-black/50 backdrop-blur-sm text-white text-[0.65rem] font-semibold font-figtree px-2 py-0.5 rounded-md">10:00</div>
+      </div>
+      <div class="px-3.5 py-3 flex items-center justify-between">
+        <div>
+          <p class="font-jakarta font-bold text-[0.95rem] text-gray-900 leading-snug mb-0.5">Sangkuriang</p>
+          <div class="flex items-center gap-1 text-gray-400">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="font-figtree text-[0.72rem]">West Java</span>
+          </div>
+        </div>
+        <button class="text-gray-400 hover:text-gray-600 p-1 transition-colors">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ TRENDING ARTICLES ═══════════════ -->
+<section class="px-8 pt-10 pb-10 max-w-[1080px] mx-auto">
+
+  <!-- Section header -->
+  <div class="flex items-end justify-between mb-5">
+    <div>
+      <p class="font-figtree text-[0.78rem] font-semibold text-[#C94B2C] mb-0.5">Read &amp; Explore</p>
+      <h2 class="font-jakarta font-bold text-[1.75rem] text-gray-900 leading-tight">Trending Articles</h2>
+    </div>
+    <a href="#" class="font-figtree text-[0.85rem] text-gray-500 hover:text-gray-800 transition-colors">View All</a>
+  </div>
+
+  <!-- Article cards -->
+  <div class="grid grid-cols-3 gap-5">
+
+    <!-- Card 1 -->
+    <div class="bg-white rounded-2xl overflow-hidden">
+      <!-- Image -->
+      <div class="relative h-[170px] bg-gray-200 flex items-center justify-center">
+        <!-- Replace with <img src="..." class="w-full h-full object-cover"> -->
+        <img src="resource/Trending-1.png" class="w-full h-full object-cover">
+        <!-- Category badge top-left -->
+        <div class="absolute top-3 left-3 bg-white backdrop-blur-sm text-[#D33F1D] font-figtree text-[0.68rem] font-semibold px-2.5 py-1 rounded-full shadow-sm">Cultural Heritage</div>
+      </div>
+      <!-- Body -->
+      <div class="px-4 pt-3 pb-3.5">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <p class="font-jakarta font-bold text-[0.9rem] text-gray-900 leading-snug">The Hidden Language of Batik Par...</p>
+          <button class="text-gray-400 hover:text-gray-600 flex-shrink-0 mt-0.5">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+          </button>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="font-figtree text-[0.72rem] text-gray-400">6 min read</span>
+          <div class="flex items-center gap-1">
+            <!-- Trending arrow icon -->
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E29936" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            <span class="font-figtree text-[0.72rem] font-semibold text-[#E29936]">Trending</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="bg-white rounded-2xl overflow-hidden">
+      <div class="relative h-[170px] bg-gray-200 flex items-center justify-center">
+        <img src="resource/Trending-2.png" class="w-full h-full object-cover">
+        <div class="absolute top-3 left-3 bg-white backdrop-blur-sm text-[#D33F1D] font-figtree text-[0.68rem] font-semibold px-2.5 py-1 rounded-full shadow-sm">Traditional Foods</div>
+      </div>
+      <div class="px-4 pt-3 pb-3.5">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <p class="font-jakarta font-bold text-[0.9rem] text-gray-900 leading-snug">Why Every Region Has Its Own So...</p>
+          <button class="text-gray-400 hover:text-gray-600 flex-shrink-0 mt-0.5">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+          </button>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="font-figtree text-[0.72rem] text-gray-400">12 min read</span>
+          <div class="flex items-center gap-1">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E29936" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            <span class="font-figtree text-[0.72rem] font-semibold text-[#E29936]">Trending</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="bg-white rounded-2xl overflow-hidden">
+      <div class="relative h-[170px] bg-gray-200 flex items-center justify-center">
+        <img src="resource/Trending-3.png" class="w-full h-full object-cover">
+        <div class="absolute top-3 left-3 bg-white backdrop-blur-sm font-figtree text-[0.68rem] font-semibold px-2.5 py-1 rounded-full shadow-sm text-[#D33F1D] ">Preservation News</div>
+      </div>
+      <div class="px-4 pt-3 pb-3.5">
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <p class="font-jakarta font-bold text-[0.9rem] text-gray-900 leading-snug">Inside the Restoration of Borobudur</p>
+          <button class="text-gray-400 hover:text-gray-600 flex-shrink-0 mt-0.5">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+          </button>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="font-figtree text-[0.72rem] text-gray-400">4 min read</span>
+          <div class="flex items-center gap-1">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E29936" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            <span class="font-figtree text-[0.72rem] font-semibold text-[#E29936]">Popular</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════ CULTURAL MAP ═══════════════ -->
+<section class="px-8 pt-6 pb-20 max-w-[1080px] mx-auto">
+
+  <div class="rounded-3xl overflow-hidden relative" style="background: linear-gradient(135deg, #3B1A10 0%, #5C2A18 40%, #7A3A20 70%, #5C2510 100%);">
+
+    <!-- Subtle radial glow top-right -->
+    <div class="absolute top-0 right-0 w-[400px] h-[400px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(200,100,50,0.25) 0%, transparent 65%);"></div>
+
+    <div class="relative z-10 p-10 grid grid-cols-[1fr_auto] gap-10 items-center">
+
+      <!-- Left: text + stats + button -->
+      <div>
+        <p class="font-figtree text-[0.75rem] font-semibold mb-3" style="color:#D4924A;">Cultural Map</p>
+        <h2 class="font-jakarta font-extrabold text-white leading-[1.1] mb-5" style="font-size:2.15rem;">
+          Explore Indonesia,<br>one province at a time.
+        </h2>
+        <p class="font-figtree text-[0.82rem] leading-relaxed mb-8" style="color:rgba(255,255,255,0.55); max-width:360px;">
+          Unlock the cultures, dances, foods, and stories of every region.
+          Each province you complete brings you closer to becoming a
+          Culture Master.
+        </p>
+
+        <!-- Explored badge + button -->
+        <div class="flex items-center gap-4">
+          <div class="rounded-2xl px-4 py-2.5 text-center" style="background:rgba(255,255,255,0.10);">
+            <p class="font-figtree text-[0.62rem] font-semibold mb-0.5" style="color:rgba(255,255,255,0.50); letter-spacing:0.06em;">Explored</p>
+            <p class="font-jakarta font-extrabold text-white text-[1.4rem] leading-none">7 / 38</p>
+          </div>
+          <button class="font-jakarta font-bold text-[0.85rem] px-6 py-3 rounded-full transition-all hover:opacity-90" style="background:#D4924A; color:#3B1A10;">
+            Open Map
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: province grid 2x3 -->
+      <div class="grid grid-cols-3 gap-2.5" style="min-width:420px;">
+
+        <!-- Province card helper styles via inline -->
+
+        <!-- Row 1 -->
+
+        <!-- Sumatra — completed (100%) -->
+        <div class="rounded-2xl px-3.5 py-3" style="background:rgba(255,255,255,0.12);">
+          <div class="flex items-center justify-between mb-2">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <!-- Green checkmark -->
+            <div class="w-5 h-5 rounded-full bg-[#22C47A] flex items-center justify-center">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+          </div>
+          <p class="font-jakarta font-bold text-white text-[0.82rem] mb-1.5">Sumatra</p>
+          <div class="h-[3px] rounded-full mb-1" style="background:rgba(255,255,255,0.15);">
+            <div class="h-full rounded-full bg-[#D4924A]" style="width:100%;"></div>
+          </div>
+          <p class="font-figtree text-[0.65rem]" style="color:rgba(255,255,255,0.50);">100%</p>
+        </div>
+
+        <!-- Java — in progress (64%) -->
+        <div class="rounded-2xl px-3.5 py-3" style="background:rgba(255,255,255,0.10);">
+          <div class="flex items-center justify-between mb-2">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <p class="font-jakarta font-bold text-white text-[0.82rem] mb-1.5">Java</p>
+          <div class="h-[3px] rounded-full mb-1" style="background:rgba(255,255,255,0.15);">
+            <div class="h-full rounded-full bg-[#D4924A]" style="width:64%;"></div>
+          </div>
+          <p class="font-figtree text-[0.65rem]" style="color:rgba(255,255,255,0.50);">64%</p>
+        </div>
+
+        <!-- Bali — in progress (37%) -->
+        <div class="rounded-2xl px-3.5 py-3" style="background:rgba(255,255,255,0.08);">
+          <div class="flex items-center justify-between mb-2">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <p class="font-jakarta font-bold text-white text-[0.82rem] mb-1.5">Bali</p>
+          <div class="h-[3px] rounded-full mb-1" style="background:rgba(255,255,255,0.15);">
+            <div class="h-full rounded-full bg-[#D4924A]" style="width:37%;"></div>
+          </div>
+          <p class="font-figtree text-[0.65rem]" style="color:rgba(255,255,255,0.50);">37%</p>
+        </div>
+
+        <!-- Row 2 -->
+
+        <!-- Kalimantan — locked (0%) -->
+        <div class="rounded-2xl px-3.5 py-3" style="background:rgba(255,255,255,0.07);">
+          <div class="flex items-center justify-between mb-2">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <!-- Lock icon -->
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.30)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <p class="font-jakarta font-bold text-[0.82rem] mb-1.5" style="color:rgba(255,255,255,0.40);">Sumatra</p>
+          <div class="h-[3px] rounded-full mb-1" style="background:rgba(255,255,255,0.10);">
+            <div class="h-full rounded-full bg-[#D4924A]" style="width:0%;"></div>
+          </div>
+          <p class="font-figtree text-[0.65rem]" style="color:rgba(255,255,255,0.30);">0%</p>
+        </div>
+
+        <!-- Sulawesi — locked (0%) -->
+        <div class="rounded-2xl px-3.5 py-3" style="background:rgba(255,255,255,0.07);">
+          <div class="flex items-center justify-between mb-2">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.30)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <p class="font-jakarta font-bold text-[0.82rem] mb-1.5" style="color:rgba(255,255,255,0.40);">Sulawesi</p>
+          <div class="h-[3px] rounded-full mb-1" style="background:rgba(255,255,255,0.10);">
+            <div class="h-full rounded-full bg-[#D4924A]" style="width:0%;"></div>
+          </div>
+          <p class="font-figtree text-[0.65rem]" style="color:rgba(255,255,255,0.30);">0%</p>
+        </div>
+
+        <!-- Papua — locked (0%) -->
+        <div class="rounded-2xl px-3.5 py-3" style="background:rgba(255,255,255,0.07);">
+          <div class="flex items-center justify-between mb-2">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.30)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <p class="font-jakarta font-bold text-[0.82rem] mb-1.5" style="color:rgba(255,255,255,0.40);">Papua</p>
+          <div class="h-[3px] rounded-full mb-1" style="background:rgba(255,255,255,0.10);">
+            <div class="h-full rounded-full bg-[#D4924A]" style="width:0%;"></div>
+          </div>
+          <p class="font-figtree text-[0.65rem]" style="color:rgba(255,255,255,0.30);">0%</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ COMMUNITY SPOTLIGHT ═══════════════ -->
+<section style="background:#F9ECE8;">
+  <div class="max-w-[1080px] mx-auto px-8 pt-10 pb-16">
+ 
+  <!-- Section header -->
+  <div class="mb-6">
+    <p class="font-figtree text-[0.78rem] font-semibold text-[#C94B2C] mb-0.5">Learn together</p>
+    <h2 class="font-jakarta font-bold text-[1.75rem] text-gray-900 leading-tight">Community Spotlight</h2>
+  </div>
+ 
+  <!-- Two column layout -->
+  <div class="grid grid-cols-[1fr_1.15fr] gap-4">
+ 
+    <!-- LEFT: Top Learners leaderboard -->
+    <div class="bg-white rounded-2xl p-5">
+      <!-- Card header -->
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-9 h-9 rounded-full bg-[#C94B2C] flex items-center justify-center flex-shrink-0">
+          <!-- Crown icon -->
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="m4 20 2-8 6 4 6-4 2 8"/><path d="M12 4 9 8l3 4 3-4z"/></svg>
+        </div>
+        <div>
+          <p class="font-jakarta font-bold text-[0.95rem] text-gray-900 leading-none mb-0.5">Top Learners</p>
+          <p class="font-figtree text-[0.72rem] text-gray-400">This week</p>
+        </div>
+      </div>
+ 
+      <!-- Learner rows 1–4 -->
+      <div class="flex flex-col gap-1 mb-1">
+ 
+        <!-- Row 1 -->
+        <div class="flex items-center gap-3 px-2 py-2.5 rounded-xl">
+          <span class="font-jakarta font-bold text-[0.82rem] text-gray-400 w-4 text-center flex-shrink-0">1</span>
+          <!-- <div class="w-9 h-9 rounded-full bg-gray-200 flex-shrink-0 overflow-hidden flex items-center justify-center text-gray-400 text-lg">👩</div> -->
+           <img class="w-9 h-9" src="resource/pp-1.png" alt="">
+          <div>
+            <p class="font-jakarta font-bold text-[0.88rem] text-gray-900 leading-none mb-0.5">Aisha P.</p>
+            <p class="font-figtree text-[0.72rem] text-gray-400">14,820 XP</p>
+          </div>
+        </div>
+ 
+        <!-- Row 2 -->
+        <div class="flex items-center gap-3 px-2 py-2.5 rounded-xl">
+          <span class="font-jakarta font-bold text-[0.82rem] text-gray-400 w-4 text-center flex-shrink-0">2</span>
+           <img class="w-9 h-9" src="resource/pp-2.png" alt="">
+
+          <div>
+            <p class="font-jakarta font-bold text-[0.88rem] text-gray-900 leading-none mb-0.5">Bima K.</p>
+            <p class="font-figtree text-[0.72rem] text-gray-400">12,310 XP</p>
+          </div>
+        </div>
+ 
+        <!-- Row 3 -->
+        <div class="flex items-center gap-3 px-2 py-2.5 rounded-xl">
+          <span class="font-jakarta font-bold text-[0.82rem] text-gray-400 w-4 text-center flex-shrink-0">3</span>
+           <img class="w-9 h-9" src="resource/pp-3.png" alt="">
+
+          <div>
+            <p class="font-jakarta font-bold text-[0.88rem] text-gray-900 leading-none mb-0.5">Citra L.</p>
+            <p class="font-figtree text-[0.72rem] text-gray-400">11,090 XP</p>
+          </div>
+        </div>
+ 
+        <!-- Row 4 -->
+        <div class="flex items-center gap-3 px-2 py-2.5 rounded-xl">
+          <span class="font-jakarta font-bold text-[0.82rem] text-gray-400 w-4 text-center flex-shrink-0">4</span>
+           <img class="w-9 h-9" src="resource/pp-4.png" alt="">
+      
+          <div>
+            <p class="font-jakarta font-bold text-[0.88rem] text-gray-900 leading-none mb-0.5">Dimas R.</p>
+            <p class="font-figtree text-[0.72rem] text-gray-400">9,440 XP</p>
+          </div>
+        </div>
+ 
+      </div>
+ 
+      <!-- Row 5 — YOU (highlighted) -->
+      <div class="flex items-center gap-3 px-4 py-3 rounded-2xl" style="background:#FDEAE4;">
+        <span class="font-jakarta font-bold text-[0.82rem] text-[#C94B2C] w-4 text-center flex-shrink-0">5</span>
+           <img class="w-10 h-10" src="resource/pp-rama.png" alt="">
+        <div>
+          <p class="font-jakarta font-bold text-[0.9rem] text-gray-900 leading-none mb-0.5">You (Rama)</p>
+          <p class="font-figtree text-[0.72rem] text-gray-500">2,480 XP</p>
+        </div>
+      </div>
+ 
+    </div>
+ 
+    <!-- RIGHT: Active Classes + Trending Discussions -->
+    <div class="flex flex-col gap-4">
+ 
+      <!-- Active Classes -->
+      <div class="rounded-2xl p-5" style="background:#8B3520;">
+        <!-- Header -->
+        <div class="flex items-center gap-2 mb-4">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <p class="font-jakarta font-bold text-white text-[0.92rem]">Active Classes</p>
+        </div>
+ 
+        <!-- 2x2 class grid -->
+        <div class="grid grid-cols-2 gap-2.5">
+ 
+          <div class="rounded-xl px-3.5 py-3" style="background:rgba(255,255,255,0.12);">
+            <p class="font-jakarta font-bold text-white text-[0.82rem] leading-snug mb-1">Wayang Beginner Cohort</p>
+            <p class="font-figtree text-[0.68rem]" style="color:rgba(255,255,255,0.55);">Live · 32 learners</p>
+          </div>
+ 
+          <div class="rounded-xl px-3.5 py-3" style="background:rgba(255,255,255,0.12);">
+            <p class="font-jakarta font-bold text-white text-[0.82rem] leading-snug mb-1">Tari Saman Workshop</p>
+            <p class="font-figtree text-[0.68rem]" style="color:rgba(255,255,255,0.55);">Live · 32 learners</p>
+          </div>
+ 
+          <div class="rounded-xl px-3.5 py-3" style="background:rgba(255,255,255,0.12);">
+            <p class="font-jakarta font-bold text-white text-[0.82rem] leading-snug mb-1">Folklore Reading Club</p>
+            <p class="font-figtree text-[0.68rem]" style="color:rgba(255,255,255,0.55);">Live · 32 learners</p>
+          </div>
+ 
+          <div class="rounded-xl px-3.5 py-3" style="background:rgba(255,255,255,0.12);">
+            <p class="font-jakarta font-bold text-white text-[0.82rem] leading-snug mb-1">Batik Pattern 101</p>
+            <p class="font-figtree text-[0.68rem]" style="color:rgba(255,255,255,0.55);">Live · 32 learners</p>
+          </div>
+ 
+        </div>
+      </div>
+ 
+      <!-- Trending Discussions -->
+      <div class="bg-white rounded-2xl p-5 flex-1">
+        <!-- Header -->
+        <div class="flex items-center gap-2 mb-4">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C94B2C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <p class="font-jakarta font-bold text-gray-900 text-[0.92rem]">Trending Discussions</p>
+        </div>
+ 
+        <!-- Discussion rows -->
+        <div class="flex flex-col divide-y divide-gray-100">
+ 
+          <div class="flex items-center gap-3 py-3 first:pt-0">
+            <span class="font-figtree text-[0.65rem] font-semibold text-[#C94B2C] bg-[#FDEAE4] px-2.5 py-1 rounded-full flex-shrink-0">Folklore</span>
+            <p class="font-figtree text-[0.82rem] text-gray-700 flex-1 leading-snug">What's your favorite Indonesian folklore?</p>
+            <div class="flex items-center gap-1 flex-shrink-0">
+              <span class="font-figtree text-[0.72rem] text-gray-400 font-medium">124</span>
+              <img class="w-4" src="resource/icon-chat.png" alt="">
+            </div>
+          </div>
+ 
+          <div class="flex items-center gap-3 py-3">
+            <span class="font-figtree text-[0.65rem] font-semibold text-[#C94B2C] bg-[#FDEAE4] px-2.5 py-1 rounded-full flex-shrink-0">Food</span>
+            <p class="font-figtree text-[0.82rem] text-gray-700 flex-1 leading-snug">Best regional desserts you have try</p>
+            <div class="flex items-center gap-1 flex-shrink-0">
+              <span class="font-figtree text-[0.72rem] text-gray-400 font-medium">87</span>
+              <img class="w-4" src="resource/icon-chat.png" alt="">
+
+            </div>
+          </div>
+ 
+          <div class="flex items-center gap-3 py-3 last:pb-0">
+            <span class="font-figtree text-[0.65rem] font-semibold text-[#C94B2C] bg-[#FDEAE4] px-2.5 py-1 rounded-full flex-shrink-0">Dance</span>
+            <p class="font-figtree text-[0.82rem] text-gray-700 flex-1 leading-snug">Tips to memorize traditional dances</p>
+            <div class="flex items-center gap-1 flex-shrink-0">
+              <span class="font-figtree text-[0.72rem] text-gray-400 font-medium">56</span>
+              <img class="w-4" src="resource/icon-chat.png" alt="">
+
+            </div>
+          </div>
+ 
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+  </div>
+</section>
+ 
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer border-top: 1px solid #E5DDD4;">
+  <div class="max-w-[1080px] mx-auto px-8 pt-14 pb-8">
+ 
+    <!-- Top row: logo+desc+socials | links -->
+    <div class="flex justify-between gap-16 mb-12">
+ 
+      <!-- Left: brand -->
+      <div class="max-w-[300px]">
+        <!-- Logo wordmark -->
+        <div class="flex items-center gap-1.5 mb-1 ">
+          <img class="w-[120px]" src="resource/Logo.png" alt="">
+        </div>
+        <p class="font-figtree text-[0.82rem] text-gray-500 leading-relaxed">Helping the next generation rediscover Indonesia.</p>
+        <p class="font-figtree text-[0.82rem] text-gray-500 leading-relaxed ">One story, one dance, one island at a time.</p>
+        <p class="font-figtree font-bold text-[0.82rem] text-gray-800 mb-7">Budaya kita, kebanggaan kita.</p>
+ 
+        <!-- Social icons -->
+        <div class="flex items-center gap-3">
+          <!-- Instagram -->
+          <a href="#" class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-800 hover:border-gray-300 transition-all">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <!-- Twitter/X -->
+          <a href="#" class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-800 hover:border-gray-300 transition-all">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <!-- YouTube -->
+          <a href="#" class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-800 hover:border-gray-300 transition-all">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </a>
+        </div>
+      </div>
+ 
+      <!-- Right: nav columns -->
+      <div class="flex gap-16">
+        <!-- Explore -->
+        <div>
+          <p class="font-jakarta font-bold text-[0.85rem] text-gray-900 mb-4">Explore</p>
+          <ul class="flex flex-col gap-0.5">
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Home</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Activity</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Class</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Folklore</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Articles</a></li>
+          </ul>
+        </div>
+        <!-- Community -->
+        <div>
+          <p class="font-jakarta font-bold text-[0.85rem] text-gray-900 mb-4">Community</p>
+          <ul class="flex flex-col gap-0.5">
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Leaderboard</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Discussions</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Events</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Classrooms</a></li>
+          </ul>
+        </div>
+        <!-- About -->
+        <div>
+          <p class="font-jakarta font-bold text-[0.85rem] text-gray-900 mb-4">About</p>
+          <ul class="flex flex-col gap-0.5">
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Our Mission</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Contact</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Privacy</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+ 
+    </div>
+ 
+    <!-- Bottom bar -->
+    <div class="border-t border-gray-300/60 pt-6 flex items-center justify-between">
+      <p class="font-figtree text-[0.75rem] text-gray-400">© 2026 CultureUp.</p>
+      <p class="font-figtree text-[0.75rem] text-gray-400">Bhinneka Tunggal Ika</p>
+    </div>
+ 
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function(el) { io.observe(el); });
+
+  // Nav active state
+  document.querySelectorAll('nav a').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelectorAll('nav a').forEach(function(x) {
+        x.classList.remove('nav-pill-active');
+        x.classList.add('text-gray-600');
+      });
+      this.classList.add('nav-pill-active');
+      this.classList.remove('text-gray-600');
+    });
+  });
+
+  // Trigger hero reveal immediately
+  document.getElementById('hero-left').classList.add('visible');
+</script>
+</body>
+</html>
