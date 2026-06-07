@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nusantara Learn — Discover Indonesia Through Culture</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
+          figtree: ['Figtree', 'sans-serif'],
+        },
+        colors: {
+          brand: {
+            red:    '#C94B2C',
+            redDark:'#A83822',
+            orange: '#E05C3A',
+          },
+          card: {
+            red:   '#FDECEA',
+            amber: '#FEF5E7',
+            fire:  '#FDECEA',
+            teal:  '#EAF2F0',
+          }
+        },
+        keyframes: {
+          floatY: {
+            '0%,100%': { transform: 'translateY(0px)' },
+            '50%':     { transform: 'translateY(-10px)' },
+          },
+          fadeUp: {
+            '0%':   { opacity: '0', transform: 'translateY(24px)' },
+            '100%': { opacity: '1', transform: 'translateY(0)' },
+          }
+        },
+        animation: {
+          float1: 'floatY 3s ease-in-out infinite',
+          float2: 'floatY 3s ease-in-out infinite 1.5s',
+          fadeUp: 'fadeUp 0.7s ease forwards',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Figtree', sans-serif; background: #FFF9F2; overflow-x: hidden; }
+  h1,h2,h3,.font-title { font-family: 'Plus Jakarta Sans', sans-serif !important; }
+
+  /* hero bg gradient — matches reference: soft warm white/cream left, peach/salmon glow top-right */
+  .hero-section {
+    background:
+      radial-gradient(ellipse 55% 70% at 100% 0%, rgba(230,130,100,0.22) 0%, transparent 65%),
+      radial-gradient(ellipse 40% 50% at 0% 100%, rgba(180,220,200,0.15) 0%, transparent 60%),
+      #f8f6f2;
+  }
+
+  /* cards section bg — same warm light gradient */
+  .cards-section {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 50%, rgba(230,130,100,0.10) 0%, transparent 70%),
+      #f8f6f2;
+  }
+
+  /* card 1 — Learning Progress: very soft pink/red bg */
+  .card-learning {
+    background: linear-gradient(145deg, #FDE8E4 0%, #FAD8D0 100%);
+  }
+  /* card 2 — XP Level: very soft warm amber/cream */
+  .card-xp {
+    background: linear-gradient(145deg, #FEF0E0 0%, #FDE4C4 100%);
+  }
+  /* card 3 — Current Streak: same soft pink/red */
+  .card-streak {
+    background: linear-gradient(145deg, #FDE8E4 0%, #FAD8D0 100%);
+  }
+  /* card 4 — Province: soft sage/teal */
+  .card-province {
+    background: linear-gradient(145deg, #E8F2EE 0%, #D4E8DF 100%);
+  }
+
+  /* icon circles */
+  .icon-red    { background: #D94F2E; }
+  .icon-amber  { background: #D4901C; }
+  .icon-fire   { background: #D94F2E; }
+  .icon-teal   { background: #2E7D6A; }
+
+  /* progress bar base */
+  .progress-track {
+    background: rgba(0,0,0,0.12);
+    height: 6px;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .progress-fill-red   { background: #C94B2C; height: 100%; border-radius: 999px; }
+  .progress-fill-amber { background: #C94B2C; height: 100%; border-radius: 999px; }
+  .progress-fill-fire  { background: #C94B2C; height: 100%; border-radius: 999px; }
+  .progress-fill-teal  { background: #C94B2C; height: 100%; border-radius: 999px; }
+
+  /* reveal animation */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* nav pill active */
+  .nav-pill-active { background: #C94B2C; color: #fff !important; }
+</style>
+</head>
+<body>
+
+    <nav class="sticky top-0 z-50 border-b border-gray-200/70 bg-white/80 backdrop-blur-xl py-[12px]">
+  <div class="max-w-[1280px] mx-auto px-8 h-16 flex items-center justify-between">
+
+    <!-- Logo -->
+    <!-- <span class="font-title font-bold text-[1.25rem] text-gray-900 tracking-tight">Logo</span> -->
+     <img class="w-[175px]" src="resource/Logo.png" alt="">
+
+    <!-- Nav links pill -->
+    <div class="flex items-center gap-1 bg-white border border-gray-200 rounded-full px-1.5 py-1.5 shadow-sm">
+      <a href="index.html" class="font-title font-medium text-sm text-gray-600 px-5 py-1.5 rounded-full hover:bg-gray-100 transition-all duration-200">Home</a>
+      <a href="activity.html" class="font-title font-medium text-sm text-gray-600 px-5 py-1.5 rounded-full hover:bg-gray-100 transition-all duration-200">Activity</a>
+      <a href="class.html" class="nav-pill-active font-title font-semibold text-sm px-5 py-1.5 rounded-full transition-all duration-200">Class</a>
+      <a href="#" class="font-title font-medium text-sm text-gray-600 px-5 py-1.5 rounded-full hover:bg-gray-100 transition-all duration-200">Article</a>
+      <a href="#" class="font-title font-medium text-sm text-gray-600 px-5 py-1.5 rounded-full hover:bg-gray-100 transition-all duration-200">Folklore</a>
+    </div>
+
+    <!-- Right side -->
+    <div class="flex items-center gap-3">
+      <!-- Search -->
+      <button class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:border-gray-300 transition-all">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <!-- XP badge -->
+      <div class="flex items-center gap-1.5 bg-[#FEF5E7] border border-[#F5D08A] text-[#7A5010] text-xs font-semibold font-title px-3.5 py-1.5 rounded-full">
+        <span>🔥</span>
+        <span>2,480 XP</span>
+      </div>
+      <!-- Bell -->
+      <button class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:border-gray-300 transition-all">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+      </button>
+      <!-- Avatar -->
+           <img class="w-9 h-9" src="resource/pp-rama.png" alt="">
+
+    </div>
+
+  </div>
+</nav>
+
+    <!-- ═══════════════ CLASS PAGE HERO ═══════════════ -->
+<section class="px-8 pt-12 pb-10 max-w-[1080px] mx-auto">
+  <div class="grid grid-cols-2 gap-12 items-center">
+
+    <!-- Left: text + buttons -->
+    <div>
+      <!-- Greeting tag -->
+    <div class="inline-flex items-center gap-2 bg-white/80 border border-gray-200 text-gray-500 text-[0.78rem] font-semibold font-title px-4 py-1 rounded-full mb-4">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D33F1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <p class="font-figtree text-[0.78rem] text-gray-500 font-medium">Learn together, grow together</p>
+      </div>
+
+      <!-- Title -->
+      <h1 class="font-jakarta font-bold text-[3rem] leading-[1.08] tracking-tight text-gray-900 mb-5">
+        Learn Cultural<br>
+        <span style="color:#C94B2C;">Together</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="font-figtree text-[0.88rem] text-gray-500 leading-relaxed max-w-[430px] mb-8">
+        Join classes led by cultural experts, take on weekly community challenges, and discuss everything from gamelan to gado-gado.
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="flex items-center gap-3">
+        <button class="font-jakarta font-bold text-[0.875rem] text-white bg-[#C94B2C] hover:bg-[#b03d22] px-6 py-3 rounded-full inline-flex items-center gap-2 transition-all shadow-[0_4px_18px_rgba(201,75,44,0.28)] hover:shadow-[0_6px_24px_rgba(201,75,44,0.38)] hover:-translate-y-0.5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Join New Class
+        </button>
+        <button class="font-jakarta font-bold text-[0.875rem] text-gray-800 border-[1.5px] border-gray-800 hover:bg-gray-800 hover:text-white px-6 py-[11px] rounded-full transition-all duration-200">
+          Browse Classes
+        </button>
+      </div>
+    </div>
+
+    <!-- Right: 2x2 stat grid -->
+    <div class="grid grid-cols-2 gap-3">
+
+      <!-- Active learners -->
+      <div class="bg-white rounded-2xl px-5 py-5 cursor-default transition-all duration-200 hover:shadow-[0_1px_5px_rgba(0,0,0,0.10)]">
+        <p class="font-jakarta font-extrabold text-[1.9rem] text-gray-900 leading-none mb-1.5">12,480</p>
+        <p class="font-figtree text-[0.78rem] text-gray-400">Active learners</p>
+      </div>
+
+      <!-- Live classes -->
+      <div class="bg-white rounded-2xl px-5 py-5 cursor-default transition-all duration-200 hover:shadow-[0_1px_5px_rgba(0,0,0,0.10)]">
+        <p class="font-jakarta font-extrabold text-[1.9rem] text-gray-900 leading-none mb-1.5">86</p>
+        <p class="font-figtree text-[0.78rem] text-gray-400">Live classes</p>
+      </div>
+
+      <!-- Discussions -->
+      <div class="bg-white rounded-2xl px-5 py-5 cursor-default transition-all duration-200 hover:shadow-[0_1px_5px_rgba(0,0,0,0.10)]">
+        <p class="font-jakarta font-extrabold text-[1.9rem] text-gray-900 leading-none mb-1.5">1.2k</p>
+        <p class="font-figtree text-[0.78rem] text-gray-400">Discussions</p>
+      </div>
+
+      <!-- Challenges -->
+      <div class="bg-white rounded-2xl px-5 py-5 cursor-default transition-all duration-200 hover:shadow-[0_1px_5px_rgba(0,0,0,0.10)]">
+        <p class="font-jakarta font-extrabold text-[1.9rem] text-gray-900 leading-none mb-1.5">24</p>
+        <p class="font-figtree text-[0.78rem] text-gray-400">Challenges</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════ YOUR CLASSES ═══════════════ -->
+<section class="px-8 pt-10 pb-20 max-w-[1080px] mx-auto">
+
+  <!-- Section header -->
+  <div class="flex items-center justify-between mb-5">
+    <h2 class="font-jakarta font-bold text-[1.5rem] text-gray-900">Your Classes</h2>
+    <a href="#" class="font-figtree text-[0.82rem] font-semibold text-[#C94B2C] hover:opacity-75 transition-opacity">All Classes</a>
+  </div>
+
+  <!-- Class cards — 4 columns -->
+  <div class="grid grid-cols-4 gap-4">
+
+    <!-- Card 1 — Heritage Java 101 -->
+    <div class="bg-white rounded-2xl px-4 py-4">
+      <!-- Icon -->
+      <div class="w-10 h-10 rounded-full bg-[#C94B2C] flex items-center justify-center mb-3">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <!-- Info -->
+      <p class="font-jakarta font-bold text-[0.9rem] text-gray-900 leading-snug mb-0.5">Heritage Java 101</p>
+      <p class="font-figtree text-[0.72rem] text-gray-400 mb-3">Mrs. Sari · Yogyakarta</p>
+      <!-- Progress bar -->
+      <div class="h-[4px] rounded-full overflow-hidden mb-2" style="background:#EDE7DF;">
+        <div class="h-full rounded-full bg-[#C94B2C]" style="width:64%;"></div>
+      </div>
+      <!-- Stats row -->
+      <div class="flex items-center justify-between">
+        <span class="font-figtree text-[0.7rem] text-gray-400">64%</span>
+        <div class="flex items-center gap-1 text-gray-600">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#BF4217" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="font-figtree text-[0.7rem]">248</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 — Folklore Storytellers -->
+    <div class="bg-white rounded-2xl px-4 py-4">
+      <div class="w-10 h-10 rounded-full bg-[#C94B2C] flex items-center justify-center mb-3">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <p class="font-jakarta font-bold text-[0.9rem] text-gray-900 leading-snug mb-0.5">Folklore Storytellers</p>
+      <p class="font-figtree text-[0.72rem] text-gray-400 mb-3">Story Community</p>
+      <div class="h-[4px] rounded-full overflow-hidden mb-2" style="background:#EDE7DF;">
+        <div class="h-full rounded-full bg-[#C94B2C]" style="width:20%;"></div>
+      </div>
+      <div class="flex items-center justify-between">
+        <span class="font-figtree text-[0.7rem] text-gray-400">20%</span>
+        <div class="flex items-center gap-1 text-gray-600">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#BF4217" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="font-figtree text-[0.7rem]">432</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 — Tari Saman Crew -->
+    <div class="bg-white rounded-2xl px-4 py-4">
+      <div class="w-10 h-10 rounded-full bg-[#C94B2C] flex items-center justify-center mb-3">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <p class="font-jakarta font-bold text-[0.9rem] text-gray-900 leading-snug mb-0.5">Tari Saman Crew</p>
+      <p class="font-figtree text-[0.72rem] text-gray-400 mb-3">Mr. Rahmat · Aceh</p>
+      <div class="h-[4px] rounded-full overflow-hidden mb-2" style="background:#EDE7DF;">
+        <div class="h-full rounded-full bg-[#C94B2C]" style="width:80%;"></div>
+      </div>
+      <div class="flex items-center justify-between">
+        <span class="font-figtree text-[0.7rem] text-gray-400">80%</span>
+        <div class="flex items-center gap-1 text-gray-600">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#BF4217" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="font-figtree text-[0.7rem]">156</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4 — Bali Sacred Arts -->
+    <div class="bg-white rounded-2xl px-4 py-4">
+      <div class="w-10 h-10 rounded-full bg-[#C94B2C] flex items-center justify-center mb-3">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <p class="font-jakarta font-bold text-[0.9rem] text-gray-900 leading-snug mb-0.5">Bali Sacred Arts</p>
+      <p class="font-figtree text-[0.72rem] text-gray-400 mb-3">Wayan Studio</p>
+      <div class="h-[4px] rounded-full overflow-hidden mb-2" style="background:#EDE7DF;">
+        <div class="h-full rounded-full bg-[#C94B2C]" style="width:12%;"></div>
+      </div>
+      <div class="flex items-center justify-between">
+        <span class="font-figtree text-[0.7rem] text-gray-400">12%</span>
+        <div class="flex items-center gap-1 text-gray-600">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#BF4217" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="font-figtree text-[0.7rem]">532</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ COMMUNITY CHALLENGES ═══════════════ -->
+<section style="background:#F9ECE8;" class="px-[160px] py-[60px]">
+    <div class="max-w-[1080px] mx-auto">
+
+  <div class="mb-6">
+    <h2 class="font-jakarta font-bold text-[1.5rem] text-gray-900 leading-tight mb-1">Community Challenges</h2>
+    <p class="font-figtree text-[0.82rem] text-gray-400">Compete kindly. Earn XP. Grow together.</p>
+  </div>
+
+  <div class="grid grid-cols-3 gap-5">
+
+    <!-- Card 1 — Java Culture Week -->
+    <div class="bg-white rounded-2xl px-5 py-5">
+      <!-- Timer badge -->
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-8 h-8 rounded-full bg-[#FDEAE4] flex items-center justify-center flex-shrink-0">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C94B2C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <span class="font-figtree text-[0.75rem] text-gray-500 font-medium">Ends in 3d</span>
+      </div>
+      <!-- Title + desc -->
+      <p class="font-jakarta font-bold text-[1rem] text-gray-900 mb-2">Java Culture Week</p>
+      <p class="font-figtree text-[0.78rem] text-gray-400 mb-4">Complete 5 quizzes about Java</p>
+      <!-- XP + joined -->
+      <div class="flex items-center justify-between mb-4">
+        <span class="font-jakarta font-bold text-[0.82rem] text-[#C94B2C]">+500 XP</span>
+        <span class="font-figtree text-[0.72rem] text-gray-400">1,240 joined</span>
+      </div>
+      <button class="w-full bg-[#C94B2C] hover:bg-[#b03d22] text-white font-jakarta font-bold text-[0.85rem] py-2.5 rounded-full transition-colors">Join Challenge</button>
+    </div>
+
+    <!-- Card 2 — Folklore Marathon -->
+    <div class="bg-white rounded-2xl px-5 py-5">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-8 h-8 rounded-full bg-[#FDEAE4] flex items-center justify-center flex-shrink-0">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C94B2C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <span class="font-figtree text-[0.75rem] text-gray-500 font-medium">Ends in 5d</span>
+      </div>
+      <p class="font-jakarta font-bold text-[1rem] text-gray-900 mb-2">Folklore Marathon</p>
+      <p class="font-figtree text-[0.78rem] text-gray-400 mb-4">Watch 10 Folklore stories</p>
+      <div class="flex items-center justify-between mb-4">
+        <span class="font-jakarta font-bold text-[0.82rem] text-[#C94B2C]">+750 XP</span>
+        <span class="font-figtree text-[0.72rem] text-gray-400">890 joined</span>
+      </div>
+      <button class="w-full bg-[#C94B2C] hover:bg-[#b03d22] text-white font-jakarta font-bold text-[0.85rem] py-2.5 rounded-full transition-colors">Join Challenge</button>
+    </div>
+
+    <!-- Card 3 — Spice Route Challenge -->
+    <div class="bg-white rounded-2xl px-5 py-5">
+      <div class="flex items-center gap-2 mb-4">
+        <div class="w-8 h-8 rounded-full bg-[#FDEAE4] flex items-center justify-center flex-shrink-0">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C94B2C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <span class="font-figtree text-[0.75rem] text-gray-500 font-medium">Ends in 2d</span>
+      </div>
+      <p class="font-jakarta font-bold text-[1rem] text-gray-900 mb-2">Spice Route Challenge</p>
+      <p class="font-figtree text-[0.78rem] text-gray-400 mb-4">Master Indonesian cuisine</p>
+      <div class="flex items-center justify-between mb-4">
+        <span class="font-jakarta font-bold text-[0.82rem] text-[#C94B2C]">+450 XP</span>
+        <span class="font-figtree text-[0.72rem] text-gray-400">8,190 joined</span>
+      </div>
+      <button class="w-full bg-[#C94B2C] hover:bg-[#b03d22] text-white font-jakarta font-bold text-[0.85rem] py-2.5 rounded-full transition-colors">Join Challenge</button>
+    </div>
+
+  </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════ LEADERBOARD + DISCUSSION FORUM ═══════════════ -->
+<section class="px-8 pt-6 pb-10 max-w-[1080px] mx-auto">
+  <div class="grid grid-cols-[1fr_1.3fr] gap-5">
+
+    <!-- LEFT: Friendly Leaderboard -->
+    <div class="bg-white rounded-2xl p-5">
+      <!-- Header -->
+      <div class="flex items-center gap-2.5 mb-5">
+        <div class="w-8 h-8 rounded-full bg-[#FEF0E0] flex items-center justify-center">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D4921A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="m4 20 2-8 6 4 6-4 2 8"/><path d="M12 4 9 8l3 4 3-4z"/></svg>
+        </div>
+        <p class="font-jakarta font-bold text-[0.95rem] text-gray-900">Friendly Leaderboard</p>
+      </div>
+
+      <!-- Rows 1–4 -->
+      <div class="flex flex-col gap-0.5 mb-2">
+
+        <div class="flex items-center gap-3 px-2 py-2.5 rounded-xl">
+          <span class="font-figtree text-[0.78rem] text-gray-400 w-4 text-center flex-shrink-0">1</span>
+          <div class="w-8 h-8 rounded-full bg-gray-200 flex-shrink-0 flex items-center justify-center text-base overflow-hidden">👨</div>
+          <p class="font-jakarta font-bold text-[0.875rem] text-gray-900 flex-1">Dimas A.</p>
+          <span class="font-jakarta font-bold text-[0.78rem] text-[#C94B2C]">8,420 XP</span>
+        </div>
+
+        <div class="flex items-center gap-3 px-2 py-2.5 rounded-xl">
+          <span class="font-figtree text-[0.78rem] text-gray-400 w-4 text-center flex-shrink-0">2</span>
+          <div class="w-8 h-8 rounded-full bg-gray-200 flex-shrink-0 flex items-center justify-center text-base overflow-hidden">👩</div>
+          <p class="font-jakarta font-bold text-[0.875rem] text-gray-900 flex-1">Putri W.</p>
+          <span class="font-jakarta font-bold text-[0.78rem] text-[#C94B2C]">7,980 XP</span>
+        </div>
+
+        <div class="flex items-center gap-3 px-2 py-2.5 rounded-xl">
+          <span class="font-figtree text-[0.78rem] text-gray-400 w-4 text-center flex-shrink-0">3</span>
+          <div class="w-8 h-8 rounded-full bg-gray-200 flex-shrink-0 flex items-center justify-center text-base overflow-hidden">👩</div>
+          <p class="font-jakarta font-bold text-[0.875rem] text-gray-900 flex-1">Reza K.</p>
+          <span class="font-jakarta font-bold text-[0.78rem] text-[#C94B2C]">7,350 XP</span>
+        </div>
+
+        <div class="flex items-center gap-3 px-2 py-2.5 rounded-xl">
+          <span class="font-figtree text-[0.78rem] text-gray-400 w-4 text-center flex-shrink-0">4</span>
+          <div class="w-8 h-8 rounded-full bg-gray-200 flex-shrink-0 flex items-center justify-center text-base overflow-hidden">👩</div>
+          <p class="font-jakarta font-bold text-[0.875rem] text-gray-900 flex-1">Sinta L.</p>
+          <span class="font-jakarta font-bold text-[0.78rem] text-[#C94B2C]">6,900 XP</span>
+        </div>
+
+      </div>
+
+      <!-- You (highlighted) -->
+      <div class="flex items-center gap-3 px-4 py-3 rounded-2xl mb-3" style="background:#FDEAE4;">
+        <span class="font-figtree text-[0.78rem] text-[#C94B2C] font-bold w-4 text-center flex-shrink-0">12</span>
+        <div class="w-9 h-9 rounded-full bg-gray-300 flex-shrink-0 flex items-center justify-center text-base overflow-hidden">🧑</div>
+        <p class="font-jakarta font-bold text-[0.875rem] text-gray-900 flex-1">You (Rama)</p>
+        <span class="font-jakarta font-bold text-[0.78rem] text-[#C94B2C]">2,480 XP</span>
+      </div>
+
+      <p class="font-figtree text-[0.68rem] text-gray-400 italic px-1">Rankings reset weekly. Everyone wins XP, no one loses progress.</p>
+    </div>
+
+    <!-- RIGHT: Discussion Forum -->
+    <div class="bg-white rounded-2xl p-5">
+      <!-- Header -->
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C94B2C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <p class="font-jakarta font-bold text-[0.95rem] text-gray-900">Discussion Forum</p>
+        </div>
+        <a href="#" class="font-figtree text-[0.75rem] font-semibold text-[#C94B2C] hover:opacity-75 transition-opacity">New thread</a>
+      </div>
+
+      <!-- Thread rows -->
+      <div class="flex flex-col divide-y divide-gray-100">
+
+        <!-- Thread helper macro — row: avatar letter + color, title, author · time · replies, Reply -->
+
+        <!-- 1 -->
+        <div class="flex items-start gap-3 py-3 first:pt-0">
+          <div class="w-8 h-8 rounded-full bg-[#4A8F6E] flex items-center justify-center flex-shrink-0 mt-0.5">
+            <span class="font-jakarta font-bold text-white text-[0.72rem]">A</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="font-jakarta font-bold text-[0.85rem] text-gray-900 leading-snug mb-0.5">Why is Timun Mas timeless?</p>
+            <p class="font-figtree text-[0.68rem] text-gray-400">Aisyah · 2h ago · 24 replies</p>
+          </div>
+          <a href="#" class="font-figtree text-[0.72rem] font-semibold text-[#C94B2C] flex-shrink-0 mt-0.5 hover:opacity-75">Reply</a>
+        </div>
+
+        <!-- 2 -->
+        <div class="flex items-start gap-3 py-3">
+          <div class="w-8 h-8 rounded-full bg-[#5A7FA8] flex items-center justify-center flex-shrink-0 mt-0.5">
+            <span class="font-jakarta font-bold text-white text-[0.72rem]">B</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="font-jakarta font-bold text-[0.85rem] text-gray-900 leading-snug mb-0.5">Best gamelan beginner resources?</p>
+            <p class="font-figtree text-[0.68rem] text-gray-400">Bagas · 5h ago · 18 replies</p>
+          </div>
+          <a href="#" class="font-figtree text-[0.72rem] font-semibold text-[#C94B2C] flex-shrink-0 mt-0.5 hover:opacity-75">Reply</a>
+        </div>
+
+        <!-- 3 -->
+        <div class="flex items-start gap-3 py-3">
+          <div class="w-8 h-8 rounded-full bg-[#7A6EA8] flex items-center justify-center flex-shrink-0 mt-0.5">
+            <span class="font-jakarta font-bold text-white text-[0.72rem]">C</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="font-jakarta font-bold text-[0.85rem] text-gray-900 leading-snug mb-0.5">Sundanese vs Javanese batik motifs</p>
+            <p class="font-figtree text-[0.68rem] text-gray-400">Citra · 1d ago · 41 replies</p>
+          </div>
+          <a href="#" class="font-figtree text-[0.72rem] font-semibold text-[#C94B2C] flex-shrink-0 mt-0.5 hover:opacity-75">Reply</a>
+        </div>
+
+        <!-- 4 -->
+        <div class="flex items-start gap-3 py-3">
+          <div class="w-8 h-8 rounded-full bg-[#A86E4A] flex items-center justify-center flex-shrink-0 mt-0.5">
+            <span class="font-jakarta font-bold text-white text-[0.72rem]">E</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="font-jakarta font-bold text-[0.85rem] text-gray-900 leading-snug mb-0.5">Where does batik come from?</p>
+            <p class="font-figtree text-[0.68rem] text-gray-400">Effendi · 2d ago · 31 replies</p>
+          </div>
+          <a href="#" class="font-figtree text-[0.72rem] font-semibold text-[#C94B2C] flex-shrink-0 mt-0.5 hover:opacity-75">Reply</a>
+        </div>
+
+        <!-- 5 -->
+        <div class="flex items-start gap-3 py-3 last:pb-0">
+          <div class="w-8 h-8 rounded-full bg-[#4A6FA8] flex items-center justify-center flex-shrink-0 mt-0.5">
+            <span class="font-jakarta font-bold text-white text-[0.72rem]">F</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="font-jakarta font-bold text-[0.85rem] text-gray-900 leading-snug mb-0.5">Padang cuisine is better than anywhere else</p>
+            <p class="font-figtree text-[0.68rem] text-gray-400">Firmansyah · 2d ago · 26 replies</p>
+          </div>
+          <a href="#" class="font-figtree text-[0.72rem] font-semibold text-[#C94B2C] flex-shrink-0 mt-0.5 hover:opacity-75">Reply</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════ CLASS PROGRESS CTA BANNER ═══════════════ -->
+<section class="px-8 pt-4 pb-20 max-w-[1080px] mx-auto">
+
+  <div class="rounded-3xl overflow-hidden relative px-10 py-8" style="background:linear-gradient(135deg, #D94030 0%, #C03020 40%, #B02818 100%);">
+
+    <!-- Subtle right glow -->
+    <div class="absolute top-0 right-0 w-[400px] h-full pointer-events-none" style="background:radial-gradient(ellipse 60% 100% at 100% 50%, rgba(220,80,50,0.35) 0%, transparent 70%);"></div>
+
+    <div class="relative z-10 flex items-center justify-between gap-10">
+
+      <!-- Left: badge + title + desc -->
+      <div class="flex-1">
+        <!-- Badge pill -->
+        <div class="inline-flex items-center gap-1.5 bg-white/15 px-3 py-1.5 rounded-full mb-4">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          <span class="font-figtree text-[0.72rem] font-semibold text-white">Class progress</span>
+        </div>
+
+        <h2 class="font-jakarta font-extrabold text-white leading-[1.2] mb-3" style="font-size:1.55rem;">
+          You're 64% through Java<br>Heritage 101
+        </h2>
+        <p class="font-figtree text-[0.8rem] leading-relaxed" style="color:rgba(255,255,255,0.65); max-width:360px;">
+          Finish 3 more lessons to unlock the "Java Sage" badge and a special folklore unlock.
+        </p>
+      </div>
+
+      <!-- Right: card with progress bar + button -->
+      <div class="flex-shrink-0 rounded-2xl p-4 flex flex-col gap-3" style="background:rgba(255,255,255,0.12); min-width:280px;">
+        <!-- Progress bar -->
+        <div class="h-[8px] rounded-full overflow-hidden" style="background:rgba(255,255,255,0.20);">
+          <div class="h-full rounded-full" style="width:64%; background:linear-gradient(90deg, #FFD060 0%, #FFB030 100%);"></div>
+        </div>
+        <!-- Labels -->
+        <div class="flex items-center justify-between">
+          <span class="font-figtree text-[0.75rem]" style="color:rgba(255,255,255,0.65);">9 of 14 lessons</span>
+          <span class="font-jakarta font-bold text-white text-[0.78rem]">64%</span>
+        </div>
+        <!-- Button -->
+        <button class="w-full font-jakarta font-bold text-[0.875rem] py-2.5 rounded-xl transition-all hover:opacity-90" style="background:white; color:#C94B2C;">
+          Resume Class
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="border-t ">
+  <div class="max-w-[1080px] mx-auto px-8 pt-14 pb-8">
+ 
+    <!-- Top row: logo+desc+socials | links -->
+    <div class="flex justify-between gap-16 mb-12">
+ 
+      <!-- Left: brand -->
+      <div class="max-w-[300px]">
+        <!-- Logo wordmark -->
+        <div class="flex items-center gap-1.5 mb-1 ">
+          <img class="w-[120px]" src="resource/Logo.png" alt="">
+        </div>
+        <p class="font-figtree text-[0.82rem] text-gray-500 leading-relaxed">Helping the next generation rediscover Indonesia.</p>
+        <p class="font-figtree text-[0.82rem] text-gray-500 leading-relaxed ">One story, one dance, one island at a time.</p>
+        <p class="font-figtree font-bold text-[0.82rem] text-gray-800 mb-7">Budaya kita, kebanggaan kita.</p>
+ 
+        <!-- Social icons -->
+        <div class="flex items-center gap-3">
+          <!-- Instagram -->
+          <a href="#" class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-800 hover:border-gray-300 transition-all">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="  " stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <!-- Twitter/X -->
+          <a href="#" class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-800 hover:border-gray-300 transition-all">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <!-- YouTube -->
+          <a href="#" class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-800 hover:border-gray-300 transition-all">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </a>
+        </div>
+      </div>
+ 
+      <!-- Right: nav columns -->
+      <div class="flex gap-16">
+        <!-- Explore -->
+        <div>
+          <p class="font-jakarta font-bold text-[0.85rem] text-gray-900 mb-4">Explore</p>
+          <ul class="flex flex-col gap-0.5">
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Home</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Activity</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Class</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Folklore</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Articles</a></li>
+          </ul>
+        </div>
+        <!-- Community -->
+        <div>
+          <p class="font-jakarta font-bold text-[0.85rem] text-gray-900 mb-4">Community</p>
+          <ul class="flex flex-col gap-0.5">
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Leaderboard</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Discussions</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Events</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Classrooms</a></li>
+          </ul>
+        </div>
+        <!-- About -->
+        <div>
+          <p class="font-jakarta font-bold text-[0.85rem] text-gray-900 mb-4">About</p>
+          <ul class="flex flex-col gap-0.5">
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Our Mission</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Contact</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Privacy</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+ 
+    </div>
+ 
+    <!-- Bottom bar -->
+    <div class="border-t border-gray-300/60 pt-6 flex items-center justify-between">
+      <p class="font-figtree text-[0.75rem] text-gray-400">© 2026 CultureUp.</p>
+      <p class="font-figtree text-[0.75rem] text-gray-400">Bhinneka Tunggal Ika</p>
+    </div>
+ 
+  </div>
+</footer>   
+</body>
