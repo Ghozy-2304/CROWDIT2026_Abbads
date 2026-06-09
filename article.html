@@ -109,6 +109,12 @@
 
   /* nav pill active */
   .nav-pill-active { background: #C94B2C; color: #fff !important; }
+
+  .filter-pill.active {
+    background: #C94B2C;
+    color: white;
+    border: none;
+  }
 </style>
 </head>
 
@@ -153,11 +159,12 @@
 </nav>
 
 <!-- ═══════════════ ARTICLE PAGE HERO ═══════════════ -->
-<section style="background:#F7F2EC;" class="px-8 pt-10 pb-8 max-w-[1080px] mx-auto">
+<section class="px-[160px] pt-[110px] pb-[60px]">
+    <div class="max-w-[1080px] mx-auto">
 
   <!-- Label -->
-  <div class="inline-flex items-center gap-1.5 mb-5">
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6B6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+  <div class="inline-flex items-center gap-2 bg-white/80 border border-gray-200 text-gray-500 text-[0.78rem] font-semibold font-title px-4 py-1 rounded-full mb-4">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D33F1D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
     <p class="font-figtree text-[0.78rem] text-gray-500 font-medium">Cultural Knowlegde Hub</p>
   </div>
 
@@ -167,7 +174,7 @@
   </h1>
 
   <!-- Subtitle -->
-  <p class="font-figtree text-[0.88rem] text-gray-500 leading-relaxed max-w-[380px] mb-7">
+  <p class="font-figtree text-[0.88rem] text-gray-500 leading-relaxed max-w-[470px] mb-7">
     Editorial-quality stories about the food, traditions, and people that shape Indonesia.
   </p>
 
@@ -194,12 +201,12 @@
     <button onclick="setFilter(this)" class="filter-pill font-figtree font-semibold text-[0.82rem] px-4 py-1.5 rounded-full border border-gray-300 text-gray-600 hover:border-gray-400 transition-all bg-white">Heritage</button>
     <button onclick="setFilter(this)" class="filter-pill font-figtree font-semibold text-[0.82rem] px-4 py-1.5 rounded-full border border-gray-300 text-gray-600 hover:border-gray-400 transition-all bg-white">News</button>
   </div>
-
+    </div>
 </section>
 
-
 <!-- ═══════════════ FEATURED ARTICLE BANNER ═══════════════ -->
-<section style="background:#F7F2EC;" class="px-8 pb-10 max-w-[1080px] mx-auto">
+<section class="px-[160px] py-[60px]">
+    <div class="max-w-[1080px] mx-auto">
 
   <div class="relative rounded-3xl overflow-hidden" style="height:380px;">
 
@@ -210,7 +217,7 @@
     </div>
 
     <!-- Dark gradient overlay — bottom-heavy so text is readable -->
-    <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.40) 50%, rgba(0,0,0,0.10) 100%);"></div>
+    <div class="absolute inset-0" style="background:linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.30) 50%, rgba(0,0,0,0.10) 100%);"></div>
 
     <!-- Content pinned to bottom-left -->
     <div class="absolute bottom-0 left-0 right-0 px-8 pb-7">
@@ -233,14 +240,14 @@
       <!-- Bottom meta row -->
       <div class="flex items-center gap-5">
         <!-- Read time -->
-        <div class="flex items-center gap-1.5">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.70)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span class="font-figtree text-[0.78rem]" style="color:rgba(255,255,255,0.70);">8 min read</span>
+        <div class="flex items-center gap-1.5  text-white">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="font-figtree text-[0.78rem]">8 min read</span>
         </div>
         <!-- Trending -->
         <div class="flex items-center gap-1.5">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.70)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-          <span class="font-figtree text-[0.78rem]" style="color:rgba(255,255,255,0.70);">Trending</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E29936" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          <span class="font-figtree text-[0.78rem] text-white">Trending</span>
         </div>
         <!-- Read Story button -->
         <button class="font-jakarta font-bold text-[0.82rem] text-white border border-white/60 hover:bg-white hover:text-gray-900 px-5 py-1.5 rounded-full transition-all duration-200">
@@ -250,19 +257,470 @@
 
     </div>
   </div>
+    </div>
 
 </section>
 
-<style>
-  /* Filter pill active state */
-  .filter-pill.active {
-    background: #C94B2C;
-    color: white;
-    border: none;
-  }
-</style>
+<section class="px-[160px] py-[60px]">
+    <div class="max-w-[1080px] mx-auto">
+ 
+  <!-- Section header -->
+  <div class="flex items-center justify-between mb-5">
+    <h2 class="font-jakarta font-bold text-[1.5rem] text-gray-900">Trending Articles</h2>
+    <a href="#" class="font-figtree text-[0.82rem] font-semibold text-[#C94B2C] hover:opacity-75 transition-opacity">View All</a>
+  </div>
+ 
+  <!-- 2-column grid -->
+  <div class="grid grid-cols-2 gap-4">
+ 
+    <!-- ── Card 1: Borobudur ── -->
+    <div onclick="openArticle()" class="bg-white rounded-2xl overflow-visible">
+      <div class="relative h-[185px] bg-gray-300 flex items-center justify-center rounded-t-2xl">
+        <img src="resource/Article-1.png" class="w-full h-full object-cover rounded-t-2xl">
+        <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm font-figtree text-[0.68rem] font-semibold text-[#D33F1D] px-2.5 py-1 rounded-full">Heritage</div>
+      </div>
+      <div class="px-4 pt-3 pb-4">
+        <div class="flex items-start justify-between gap-2 mb-1.5">
+          <p class="font-jakarta font-bold text-[0.92rem] text-gray-900 leading-snug">Borobudur at Dawn: A Pilgrimage Through Time</p>
+          <!-- 3-dot button -->
+          <div class="relative flex-shrink-0">
+            <button onclick="toggleDropdown(this)" class="text-gray-400 hover:text-gray-600 p-1 rounded-lg hover:bg-gray-100 transition-colors mt-0.5">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+            </button>
+            <div class="dropdown-menu hidden absolute right-0 top-7 z-50 bg-white rounded-2xl overflow-hidden" style="min-width:155px; box-shadow:0 8px 32px rgba(0,0,0,0.12); border:1px solid #F0EBE5;">
+              <button class="w-full text-left font-figtree text-[0.88rem] text-gray-800 px-5 py-3.5 hover:bg-gray-50 transition-colors border-b border-gray-100" onclick="closeAllDropdowns()">Save content</button>
+              <button class="w-full text-left font-figtree text-[0.88rem] text-gray-800 px-5 py-3.5 hover:bg-gray-50 transition-colors" onclick="closeAllDropdowns()">Share</button>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="font-figtree text-[0.72rem] text-gray-400">9 min read · 4.4k reads</span>
+          <div class="flex items-center gap-1 ml-auto text-[#E29936]">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            <span class="font-figtree text-[0.72rem] font-semibold">Popular</span>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- ── Card 2: Reading Batik ── -->
+    <div onclick="openArticle()" class="bg-white rounded-2xl overflow-visible">
+      <div class="relative h-[185px] bg-gray-300 flex items-center justify-center rounded-t-2xl">
+        <img src="resource/Article-2.png" class="w-full h-full object-cover rounded-t-2xl">
+        <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm font-figtree text-[0.68rem] font-semibold text-[#D33F1D] px-2.5 py-1 rounded-full">Clothing</div>
+      </div>
+      <div class="px-4 pt-3 pb-4">
+        <div class="flex items-start justify-between gap-2 mb-1.5">
+          <p class="font-jakarta font-bold text-[0.92rem] text-gray-900 leading-snug">Reading Batik Like a Letter From Your Ancestors</p>
+          <div class="relative flex-shrink-0">
+            <button onclick="toggleDropdown(this)" class="text-gray-400 hover:text-gray-600 p-1 rounded-lg hover:bg-gray-100 transition-colors mt-0.5">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+            </button>
+            <div class="dropdown-menu hidden absolute right-0 top-7 z-50 bg-white rounded-2xl overflow-hidden" style="min-width:155px; box-shadow:0 8px 32px rgba(0,0,0,0.12); border:1px solid #F0EBE5;">
+              <button class="w-full text-left font-figtree text-[0.88rem] text-gray-800 px-5 py-3.5 hover:bg-gray-50 transition-colors border-b border-gray-100" onclick="closeAllDropdowns()">Save content</button>
+              <button class="w-full text-left font-figtree text-[0.88rem] text-gray-800 px-5 py-3.5 hover:bg-gray-50 transition-colors" onclick="closeAllDropdowns()">Share</button>
+            </div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="font-figtree text-[0.72rem] text-gray-400">3 min read · 1.4k reads</span>
+          <div class="flex items-center gap-1 ml-auto text-[#E29936]">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            <span class="font-figtree text-[0.72rem] font-semibold">Trending</span>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- ── Card 3: Saman ── -->
+    <div onclick="openArticle()" class="bg-white rounded-2xl overflow-visible">
+      <div class="relative h-[185px] bg-gray-300 flex items-center justify-center rounded-t-2xl">
+        <img src="resource/Article-3.png" class="w-full h-full object-cover rounded-t-2xl">
+        <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm font-figtree text-[0.68rem] font-semibold text-[#D33F1D] px-2.5 py-1 rounded-full">Dance</div>
+      </div>
+      <div class="px-4 pt-3 pb-4">
+        <div class="flex items-start justify-between gap-2 mb-1.5">
+          <p class="font-jakarta font-bold text-[0.92rem] text-gray-900 leading-snug">Saman: A Thousand Hands, One Heartbeat</p>
+          <div class="relative flex-shrink-0">
+            <button onclick="toggleDropdown(this)" class="text-gray-400 hover:text-gray-600 p-1 rounded-lg hover:bg-gray-100 transition-colors mt-0.5">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+            </button>
+            <div class="dropdown-menu hidden absolute right-0 top-7 z-50 bg-white rounded-2xl overflow-hidden" style="min-width:155px; box-shadow:0 8px 32px rgba(0,0,0,0.12); border:1px solid #F0EBE5;">
+              <button class="w-full text-left font-figtree text-[0.88rem] text-gray-800 px-5 py-3.5 hover:bg-gray-50 transition-colors border-b border-gray-100" onclick="closeAllDropdowns()">Save content</button>
+              <button class="w-full text-left font-figtree text-[0.88rem] text-gray-800 px-5 py-3.5 hover:bg-gray-50 transition-colors" onclick="closeAllDropdowns()">Share</button>
+            </div>
+          </div>
+        </div>
+        <span class="font-figtree text-[0.72rem] text-gray-400">11 min read · 3.1k reads</span>
+      </div>
+    </div>
+ 
+    <!-- ── Card 4: Rendang ── -->
+    <div onclick="openArticle()" class="bg-white rounded-2xl overflow-visible">
+      <div class="relative h-[185px] bg-gray-300 flex items-center justify-center rounded-t-2xl">
+        <img src="resource/Article-4.png" class="w-full h-full object-cover rounded-t-2xl">
+        <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm font-figtree text-[0.68rem] font-semibold text-[#D33F1D] px-2.5 py-1 rounded-full">Foods</div>
+      </div>
+      <div class="px-4 pt-3 pb-4">
+        <div class="flex items-start justify-between gap-2 mb-1.5">
+          <p class="font-jakarta font-bold text-[0.92rem] text-gray-900 leading-snug">Rendang Slow-Cooked: The Patience Recipe</p>
+          <div class="relative flex-shrink-0">
+            <button onclick="toggleDropdown(this)" class="text-gray-400 hover:text-gray-600 p-1 rounded-lg hover:bg-gray-100 transition-colors mt-0.5">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+            </button>
+            <div class="dropdown-menu hidden absolute right-0 top-7 z-50 bg-white rounded-2xl overflow-hidden" style="min-width:155px; box-shadow:0 8px 32px rgba(0,0,0,0.12); border:1px solid #F0EBE5;">
+              <button class="w-full text-left font-figtree text-[0.88rem] text-gray-800 px-5 py-3.5 hover:bg-gray-50 transition-colors border-b border-gray-100" onclick="closeAllDropdowns()">Save content</button>
+              <button class="w-full text-left font-figtree text-[0.88rem] text-gray-800 px-5 py-3.5 hover:bg-gray-50 transition-colors" onclick="closeAllDropdowns()">Share</button>
+            </div>
+          </div>
+        </div>
+        <span class="font-figtree text-[0.72rem] text-gray-400">5 min read · 902 reads</span>
+      </div>
+    </div>
+ 
+    <!-- ── Card 5: AI Legal ── -->
+    <div onclick="openArticle()" class="bg-white rounded-2xl overflow-visible">
+      <div class="relative h-[185px] bg-gray-300 flex items-center justify-center rounded-t-2xl">
+        <img src="resource/Article-5.png" class="w-full h-full object-cover rounded-t-2xl">
+        <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm font-figtree text-[0.68rem] font-semibold text-[#D33F1D] px-2.5 py-1 rounded-full">News</div>
+      </div>
+      <div class="px-4 pt-3 pb-4">
+        <div class="flex items-start justify-between gap-2 mb-1.5">
+          <p class="font-jakarta font-bold text-[0.92rem] text-gray-900 leading-snug">Legal Liability Arising from AI in Indonesia</p>
+          <div class="relative flex-shrink-0">
+            <button onclick="toggleDropdown(this)" class="text-gray-400 hover:text-gray-600 p-1 rounded-lg hover:bg-gray-100 transition-colors mt-0.5">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+            </button>
+            <div class="dropdown-menu hidden absolute right-0 top-7 z-50 bg-white rounded-2xl overflow-hidden" style="min-width:155px; box-shadow:0 8px 32px rgba(0,0,0,0.12); border:1px solid #F0EBE5;">
+              <button class="w-full text-left font-figtree text-[0.88rem] text-gray-800 px-5 py-3.5 hover:bg-gray-50 transition-colors border-b border-gray-100" onclick="closeAllDropdowns()">Save content</button>
+              <button class="w-full text-left font-figtree text-[0.88rem] text-gray-800 px-5 py-3.5 hover:bg-gray-50 transition-colors" onclick="closeAllDropdowns()">Share</button>
+            </div>
+          </div>
+        </div>
+        <span class="font-figtree text-[0.72rem] text-gray-400">12 min read · 6.4k reads</span>
+      </div>
+    </div>
+ 
+    <!-- ── Card 6: Cultural Heritage Sites ── -->
+    <div onclick="openArticle()" class="bg-white rounded-2xl overflow-visible">
+      <div class="relative h-[185px] bg-gray-300 flex items-center justify-center rounded-t-2xl">
+        <img src="resource/Article-6.png" class="w-full h-full object-cover rounded-t-2xl">
+        <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm font-figtree text-[0.68rem] font-semibold text-[#D33F1D] px-2.5 py-1 rounded-full">Heritage</div>
+      </div>
+      <div class="px-4 pt-3 pb-4">
+        <div class="flex items-start justify-between gap-2 mb-1.5">
+          <p class="font-jakarta font-bold text-[0.92rem] text-gray-900 leading-snug">5 Indonesian Cultural Heritage Sites That Have Gained Int...</p>
+          <div class="relative flex-shrink-0">
+            <button onclick="toggleDropdown(this)" class="text-gray-400 hover:text-gray-600 p-1 rounded-lg hover:bg-gray-100 transition-colors mt-0.5">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+            </button>
+            <div class="dropdown-menu hidden absolute right-0 top-7 z-50 bg-white rounded-2xl overflow-hidden" style="min-width:155px; box-shadow:0 8px 32px rgba(0,0,0,0.12); border:1px solid #F0EBE5;">
+              <button class="w-full text-left font-figtree text-[0.88rem] text-gray-800 px-5 py-3.5 hover:bg-gray-50 transition-colors border-b border-gray-100" onclick="closeAllDropdowns()">Save content</button>
+              <button class="w-full text-left font-figtree text-[0.88rem] text-gray-800 px-5 py-3.5 hover:bg-gray-50 transition-colors" onclick="closeAllDropdowns()">Share</button>
+            </div>
+          </div>
+        </div>
+        <span class="font-figtree text-[0.72rem] text-gray-400">16 min read · 4.1k reads</span>
+      </div>
+    </div>
+ 
+    <!-- ── Card 7: 60 Traditional Dishes ── -->
+    <div onclick="openArticle()" class="bg-white rounded-2xl overflow-visible">
+      <div class="relative h-[185px] bg-gray-300 flex items-center justify-center rounded-t-2xl">
+        <img src="resource/Article-7.png" class="w-full h-full object-cover rounded-t-2xl">
+        <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm font-figtree text-[0.68rem] font-semibold text-[#D33F1D] px-2.5 py-1 rounded-full">Foods</div>
+      </div>
+      <div class="px-4 pt-3 pb-4">
+        <div class="flex items-start justify-between gap-2 mb-1.5">
+          <p class="font-jakarta font-bold text-[0.92rem] text-gray-900 leading-snug">60 Traditional Indonesian Dishes from Sumatra to Papua</p>
+          <div class="relative flex-shrink-0">
+            <button onclick="toggleDropdown(this)" class="text-gray-400 hover:text-gray-600 p-1 rounded-lg hover:bg-gray-100 transition-colors mt-0.5">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+            </button>
+            <div class="dropdown-menu hidden absolute right-0 top-7 z-50 bg-white rounded-2xl overflow-hidden" style="min-width:155px; box-shadow:0 8px 32px rgba(0,0,0,0.12); border:1px solid #F0EBE5;">
+              <button class="w-full text-left font-figtree text-[0.88rem] text-gray-800 px-5 py-3.5 hover:bg-gray-50 transition-colors border-b border-gray-100" onclick="closeAllDropdowns()">Save content</button>
+              <button class="w-full text-left font-figtree text-[0.88rem] text-gray-800 px-5 py-3.5 hover:bg-gray-50 transition-colors" onclick="closeAllDropdowns()">Share</button>
+            </div>
+          </div>
+        </div>
+        <span class="font-figtree text-[0.72rem] text-gray-400">8 min read · 2.1k reads</span>
+      </div>
+    </div>
+ 
+    <!-- ── Card 8: Tongkonan ── -->
+    <div onclick="openArticle()" class="bg-white rounded-2xl overflow-visible">
+      <div class="relative h-[185px] bg-gray-300 flex items-center justify-center rounded-t-2xl">
+        <img src="resource/Article-8.png" class="w-full h-full object-cover rounded-t-2xl">
+        <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm font-figtree text-[0.68rem] font-semibold text-[#D33F1D] px-2.5 py-1 rounded-full">Houses</div>
+      </div>
+      <div class="px-4 pt-3 pb-4">
+        <div class="flex items-start justify-between gap-2 mb-1.5">
+          <p class="font-jakarta font-bold text-[0.92rem] text-gray-900 leading-snug">Inside the Tongkonan: Toraja's Living Architecture</p>
+          <div class="relative flex-shrink-0">
+            <button onclick="toggleDropdown(this)" class="text-gray-400 hover:text-gray-600 p-1 rounded-lg hover:bg-gray-100 transition-colors mt-0.5">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+            </button>
+            <div class="dropdown-menu hidden absolute right-0 top-7 z-50 bg-white rounded-2xl overflow-hidden" style="min-width:155px; box-shadow:0 8px 32px rgba(0,0,0,0.12); border:1px solid #F0EBE5;">
+              <button class="w-full text-left font-figtree text-[0.88rem] text-gray-800 px-5 py-3.5 hover:bg-gray-50 transition-colors border-b border-gray-100" onclick="closeAllDropdowns()">Save content</button>
+              <button class="w-full text-left font-figtree text-[0.88rem] text-gray-800 px-5 py-3.5 hover:bg-gray-50 transition-colors" onclick="closeAllDropdowns()">Share</button>
+            </div>
+          </div>
+        </div>
+        <span class="font-figtree text-[0.72rem] text-gray-400">4 min read</span>
+      </div>
+    </div>
+ 
+  </div>
+    </div>
+</section>
+
+<footer class="border-t ">
+  <div class="max-w-[1080px] mx-auto px-8 pt-14 pb-8">
+ 
+    <!-- Top row: logo+desc+socials | links -->
+    <div class="flex justify-between gap-16 mb-12">
+ 
+      <!-- Left: brand -->
+      <div class="max-w-[300px]">
+        <!-- Logo wordmark -->
+        <div class="flex items-center gap-1.5 mb-1 ">
+          <img class="w-[120px]" src="resource/Logo.png" alt="">
+        </div>
+        <p class="font-figtree text-[0.82rem] text-gray-500 leading-relaxed">Helping the next generation rediscover Indonesia.</p>
+        <p class="font-figtree text-[0.82rem] text-gray-500 leading-relaxed ">One story, one dance, one island at a time.</p>
+        <p class="font-figtree font-bold text-[0.82rem] text-gray-800 mb-7">Budaya kita, kebanggaan kita.</p>
+ 
+        <!-- Social icons -->
+        <div class="flex items-center gap-3">
+          <!-- Instagram -->
+          <a href="#" class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-800 hover:border-gray-300 transition-all">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill=" none " stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <!-- Twitter/X -->
+          <a href="#" class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-800 hover:border-gray-300 transition-all">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <!-- YouTube -->
+          <a href="#" class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-800 hover:border-gray-300 transition-all">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </a>
+        </div>
+      </div>
+ 
+      <!-- Right: nav columns -->
+      <div class="flex gap-16">
+        <!-- Explore -->
+        <div>
+          <p class="font-jakarta font-bold text-[0.85rem] text-gray-900 mb-4">Explore</p>
+          <ul class="flex flex-col gap-0.5">
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Home</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Activity</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Class</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Folklore</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Articles</a></li>
+          </ul>
+        </div>
+        <!-- Community -->
+        <div>
+          <p class="font-jakarta font-bold text-[0.85rem] text-gray-900 mb-4">Community</p>
+          <ul class="flex flex-col gap-0.5">
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Leaderboard</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Discussions</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Events</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Classrooms</a></li>
+          </ul>
+        </div>
+        <!-- About -->
+        <div>
+          <p class="font-jakarta font-bold text-[0.85rem] text-gray-900 mb-4">About</p>
+          <ul class="flex flex-col gap-0.5">
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Our Mission</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Contact</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Privacy</a></li>
+            <li><a href="#" class="font-figtree text-[0.82rem] text-gray-500 hover:text-gray-800 transition-colors">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+ 
+    </div>
+ 
+    <!-- Bottom bar -->
+    <div class="border-t border-gray-300/60 pt-6 flex items-center justify-between">
+      <p class="font-figtree text-[0.75rem] text-gray-400">© 2026 CultureUp.</p>
+      <p class="font-figtree text-[0.75rem] text-gray-400">Bhinneka Tunggal Ika</p>
+    </div>
+ 
+  </div>
+</footer>
+ 
+<!-- ══ ARTICLE MODAL ══ -->
+<div
+  id="article-modal"
+  onclick="handleOverlayClick(event)"
+  class="fixed inset-0 z-[100] flex items-center justify-center p-6 hidden"
+  style="background:rgba(0,0,0,0.45); backdrop-filter:blur(4px);"
+>
+  <!-- Modal card -->
+  <div
+    class="bg-white rounded-3xl overflow-hidden flex flex-col"
+    style="width:100%; max-width:800px; max-height:82vh; box-shadow:0 24px 64px rgba(0,0,0,0.22);"
+    onclick="event.stopPropagation()"
+  >
+ 
+    <!-- Scrollable content -->
+    <div class="overflow-y-auto flex-1 px-6 pt-7 pb-6" style="scrollbar-width:thin; scrollbar-color:#D4C8BE transparent;">
+ 
+      <!-- Article title + close button -->
+      <div class="flex items-start justify-between gap-3 mb-4">
+        <h2 id="modal-title" class="font-jakarta font-extrabold text-[1.45rem] text-[#C94B2C] leading-tight">
+          Legal Liability Arising from AI in Indonesia
+        </h2>
+        <button
+          onclick="closeArticle()"
+          class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-800 transition-all mt-0.5"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+ 
+      <!-- Action icons row -->
+      <div class="flex items-center gap-2 mb-5">
+        <button class="text-gray-400 hover:text-gray-700 transition-colors">
+          <img class="w-8" src="resource/popup-button-1.png" alt="">
+        </button>
+        <button class="text-gray-400 hover:text-gray-700 transition-colors">
+          <img class="w-8" src="resource/popup-button-2.png" alt="">
+        </button>>
+        <button class="text-gray-400 hover:text-gray-700 transition-colors">
+          <img class="w-8" src="resource/popup-button-3.png" alt="">
+        </button>
+        <button class="text-gray-400 hover:text-gray-700 transition-colors">
+          <img class="w-8" src="resource/popup-button-4.png" alt="">
+        </button>
+      </div>
+ 
+      <!-- Article image -->
+      <div class="rounded-2xl overflow-hidden bg-gray-200 mb-5 flex items-center justify-center" style="height:240px;">
+        <img src="resource/Article-5.png" class="w-full h-full object-cover">
+      </div>
+ 
+      <!-- Article body -->
+      <div id="modal-body" class="font-figtree text-[0.85rem] text-gray-600 leading-[1.8] space-y-4">
+        <p>
+          The integration of Artificial Intelligence (AI) across various sectors in Indonesia has triggered a legal vacuum (rechtshiaat), particularly within the realm of private law when these autonomous systems cause material or immaterial damages to third parties. This article aims to analyze the adequacy of Indonesia's positive civil law instruments in resolving liability disputes arising from AI technology. Utilizing a normative legal research method through a statutory approach and a conceptual approach, this study examines the limitations of the fault-based liability doctrine under Article 1365 of the Indonesian Civil Code (KUHPerdata) and product liability under Law No. 8 of 1999 on Consumer Protection. The research findings indicate that the autonomous and opaque (black box) nature of AI disrupts the traditional chain of causation, thereby complicating the victim's ability to prove the element of human fault. As a legal reconstruction, this article proposes the implementation of a strict liability doctrine and a compulsory insurance scheme for high-risk AI developers or operators to ensure distributive justice in the digital economy era.
+        </p>
+        <p>
+          The integration of Artificial Intelligence (AI) into various sectors in Indonesia has created a legal vacuum (rechtshiaat), particularly in the realm of civil law when such autonomous systems cause material or immaterial losses to third parties. This article aims to analyze the advisability of Indonesia's positive civil law instruments in resolving disputes over losses resulting from AI technology. Using normative legal research methods through a statute approach and a conceptual approach, this study examines the limitations of the doctrine of fault-based liability in Article 1365 of the Civil Code and product liability in Law No. 8 of 1999 concerning Consumer Protection. The results show that the autonomous and opaque (black box) nature of AI breaks the traditional chain of causality, making it difficult for victims to prove human error. As a legal reconstruction, this article proposes the application of the doctrine of strict liability and compulsory insurance for high-risk AI developers or operators to ensure distributive justice in the digital economy era.
+        </p>
+        <h2 class="font-bold">1. Introduction</h2>
+        <p>
+          The acceleration of digital technology in Indonesia has shifted from being a mere transactional tool to an independent decision-making system through the use of Artificial Intelligence (AI). The government's blueprint, the 2020-2045 National Artificial Intelligence Strategy, affirms Indonesia's commitment to adopting AI across key pillars, including food security, healthcare, bureaucratic efficiency, and the financial industry (fintech). However, this techno-economic enthusiasm has not been matched by adequate national legal structure and substance.
+        </p>
+        <p>
+          A fundamental problem arises when AI systems—driven by deep learning algorithms and neural networks—exhibit a high degree of autonomy in executing actions. AI is no longer a static instrument (like conventional computers), but rather a dynamic subject capable of "self-learning" from big data and producing outputs that cannot be predicted with certainty by either its developers or its users.
+        </p>
+        <p>
+          Indonesia's civil law system, primarily based on the colonial Civil Code (KUHPerdata), is built on an anthropocentric premise. This means that the law only recognizes two legal subjects, the subjects supporting rights and obligations: humans (natuurlijke persoon) and legal entities (rechtspersoon). AI, no matter how intelligent, is a legal object (zaak) that lacks legal personhood.
+        </p>
+        <p>
+          If a loss occurs, a conventional lawsuit based on Article 1365 of the Civil Code concerning Unlawful Acts (PMH) will encounter technical and doctrinal impasses. These obstacles include:
+        </p>
+        <ul class="list-disc pl-5 space-y-2">
+          <li>The Black Box Problem: The internal complexity of AI computing processes makes the algorithm's reasoning impossible for humans, including legal experts, to understand with the naked eye.</li>
+          <li>Absence of Conventional Error Elements: How to prove the existence of negligence (culpa) or intent (dolus) in humans if the loss arises purely due to an algorithmic drift that occurs autonomously beyond the programmer's control?</li>
+        </ul>
+        <p>
+          Several academics have attempted to implement Law No. 8 of 1999 concerning Consumer Protection (the Consumer Protection Law) through a product liability regime. However, the Consumer Protection Law still leaves gaps in interpretation regarding whether artificial intelligence software can be categorized as "goods" or "services," and how to prove "product defects" in systems that continue to evolve after they are marketed.
+        </p>
+        <p>
+          Therefore, this article comprehensively examines the limitations of positive civil law doctrine in Indonesia in responding to losses due to AI, and formulates a model for reconstructing legal liability that is oriented towards victim protection and legal certainty for technological innovation.
+        </p>
+        <h2 class="font-bold">2. Research Methods</h2>
+        <p>
+          This research is normative legal research, which examines written law from an internal perspective with a focus on the coherence of legal dogmatics towards new technological phenomena.
+        </p>
+        <h2>2.1 Research Approach</h2>
+        <ol class="list-decimal pl-6 space-y-4"">
+          <li>statutory Approach: Reviewing related regulations, including the Civil Code (especially Book III on Contracts), the Consumer Protection Law, and Law No. 1 of 2024 concerning the Second Amendment to the Electronic Information and Transactions Law (ITE Law).</li>
+          <li>Conceptual Approach: Dissecting the concept of legal subjects, the doctrine of causality, the doctrine of fault, and the shift towards strict liability in domestic and international legal literature.</li>
+        </ol>
+        <h2>2.2 Data Sources and Analysis</h2>
+        <p>
+          Secondary data consisting of primary legal materials (regulations), secondary legal materials (scientific journals, books, court decisions related to electronic systems), and tertiary legal materials (legal dictionaries) were collected through literature review. Data analysis was conducted qualitatively using deductive reasoning—drawing specific conclusions from general legal premises to address the legal issues being studied.
+        </p>
+      </div>
+ 
+    </div>
+ 
+    <!-- Close button — sticky bottom
+    <div class="px-7 py-4 border-t border-gray-100 flex-shrink-0">
+      <button
+        onclick="closeArticle()"
+        class="w-full font-jakarta font-bold text-[0.875rem] text-white bg-[#C94B2C] hover:bg-[#b03d22] py-2.5 rounded-xl transition-colors"
+      >
+        Close
+      </button>
+    </div> -->
+ 
+  </div>
+</div>
 
 <script>
+  
+  // Article data — tambah lebih banyak di sini
+  var articles = {
+    'ai-legal': {
+      title: 'Legal Liability Arising from AI in Indonesia',
+      body: document.getElementById('modal-body') ? document.getElementById('modal-body').innerHTML : ''
+    }
+  };
+ 
+  function openArticle(id) {
+    var modal = document.getElementById('article-modal');
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    // Scroll modal content back to top
+    modal.querySelector('.overflow-y-auto').scrollTop = 0;
+  }
+ 
+  function closeArticle() {
+    var modal = document.getElementById('article-modal');
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+ 
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('article-modal')) {
+      closeArticle();
+    }
+  }
+ 
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeArticle();
+  });
+ 
+  function toggleDropdown(btn) {
+    var menu = btn.nextElementSibling;
+    var isOpen = !menu.classList.contains('hidden');
+    closeAllDropdowns();
+    if (!isOpen) menu.classList.remove('hidden');
+  }
+ 
+  function closeAllDropdowns() {
+    document.querySelectorAll('.dropdown-menu').forEach(function(m) {
+      m.classList.add('hidden');
+    });
+  }
+ 
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.relative')) closeAllDropdowns();
+  });
+
+
   function setFilter(btn) {
     document.querySelectorAll('.filter-pill').forEach(function(p) {
       p.classList.remove('active');
@@ -271,5 +729,22 @@
     btn.classList.add('active');
     btn.classList.remove('border', 'border-gray-300', 'text-gray-600', 'bg-white');
   }
+
+  function toggleDropdown(btn) {
+    var menu = btn.nextElementSibling;
+    var isOpen = !menu.classList.contains('hidden');
+    closeAllDropdowns();
+    if (!isOpen) menu.classList.remove('hidden');
+  }
+ 
+  function closeAllDropdowns() {
+    document.querySelectorAll('.dropdown-menu').forEach(function(m) {
+      m.classList.add('hidden');
+    });
+  }
+ 
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.relative')) closeAllDropdowns();
+  });
 </script>
 </body>
