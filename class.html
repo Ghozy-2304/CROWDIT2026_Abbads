@@ -136,7 +136,7 @@
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       </button>
       <!-- XP badge -->
-      <div class="flex items-center gap-1.5 bg-[#FEF5E7] border border-[#F5D08A] text-[#7A5010] text-xs font-semibold font-title px-3.5 py-1.5 rounded-full">
+      <div class="h-9 flex items-center gap-1.5 bg-[#FEF5E7] border border-[#F5D08A] text-[#7A5010] text-xs font-semibold font-title px-3.5 py-1.5 rounded-full">
         <span>🔥</span>
         <span>2,480 XP</span>
       </div>
@@ -182,7 +182,7 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           Join New Class
         </button>
-        <button class="font-jakarta font-bold text-[0.875rem] text-gray-800 border-[1.5px] border-gray-800 hover:bg-gray-800 hover:text-white px-6 py-[11px] rounded-full transition-all duration-200">
+        <button class="font-jakarta font-bold text-[0.875rem] text-[#BF4217] border-[1.5px] border-[#BF4217] hover:bg-[#BF4217] hover:text-white px-6 py-[11px] rounded-full transition-all duration-200">
           Browse Classes
         </button>
       </div>
@@ -387,9 +387,168 @@
     </div>
 </section>
 
+<!-- ═══════════════ QUIZZES PAGE ═══════════════ -->
+<section class="px-[160px] pt-[110px] pb-20">
+    <div class="max-w-[1080px] mx-auto">
+
+  <h1 class="font-jakarta font-extrabold text-[1.75rem] text-gray-900 mb-8">Quizzes</h1>
+
+  <!-- ── HOUSES ── -->
+  <div class="mb-12">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="font-jakarta font-bold text-[1.2rem] text-gray-900">Houses</h2>
+      <a onclick="openQuizModal()" class="font-figtree text-[0.82rem] font-semibold text-[#C94B2C] hover:opacity-75 transition-opacity">View All</a>
+    </div>
+
+    <div class="grid grid-cols-3 gap-5">
+
+      <!-- Card 1 -->
+      <div class="bg-white rounded-2xl overflow-hidden">
+        <div class="relative h-[170px] bg-gray-200 flex items-center justify-center">
+          <img src="resource/House-quiz-1.png" alt="" class="w-full h-full object-cover">
+          <div class="absolute top-2.5 left-2.5 flex items-center gap-1 bg-black/40 backdrop-blur-sm text-white text-[0.62rem] font-semibold font-figtree px-2 py-0.5 rounded-full">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            12.54k
+          </div>
+          <div class="absolute top-2.5 right-2.5 bg-[#4CAF50] text-white text-[0.62rem] font-bold font-figtree px-2.5 py-0.5 rounded-full">Easy</div>
+        </div>
+        <div class="px-4 pt-3 pb-4">
+          <p class="font-jakarta font-bold text-[0.92rem] text-gray-900 leading-snug mb-1.5">Guess the traditional Indonesian house</p>
+          <div class="flex items-center gap-2 mb-3.5">
+            <span class="font-figtree text-[0.72rem] text-gray-400">16 Questions</span>
+            <span class="font-jakarta font-bold text-[0.72rem] text-[#C94B2C]">+60 XP</span>
+          </div>
+          <hr class="mb-2">
+          <button class="w-full bg-[#C94B2C] hover:bg-[#b03d22] text-white font-jakarta font-bold text-[0.85rem] py-2.5 rounded-full transition-colors">Play Now</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-2xl overflow-hidden">
+        <div class="relative h-[170px] bg-gray-200 flex items-center justify-center">
+          <img src="resource/House-quiz-2.png" alt="" class="w-full h-full object-cover">
+          <div class="absolute top-2.5 left-2.5 flex items-center gap-1 bg-black/40 backdrop-blur-sm text-white text-[0.62rem] font-semibold font-figtree px-2 py-0.5 rounded-full">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            820
+          </div>
+          <div class="absolute top-2.5 right-2.5 bg-[#E05C3A] text-white text-[0.62rem] font-bold font-figtree px-2.5 py-0.5 rounded-full">Hard</div>
+        </div>
+        <div class="px-4 pt-3 pb-4">
+          <p class="font-jakarta font-bold text-[0.92rem] text-gray-900 leading-snug mb-1.5">Challenges Facing Traditional House...</p>
+          <div class="flex items-center gap-2 mb-3.5">
+            <span class="font-figtree text-[0.72rem] text-gray-400">22 Questions</span>
+            <span class="font-jakarta font-bold text-[0.72rem] text-[#C94B2C]">+80 XP</span>
+          </div>
+          <hr class="mb-2">
+          <button class="w-full bg-[#C94B2C] hover:bg-[#b03d22] text-white font-jakarta font-bold text-[0.85rem] py-2.5 rounded-full transition-colors">Play Now</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white rounded-2xl overflow-hidden">
+        <div class="relative h-[170px] bg-gray-200 flex items-center justify-center">
+          <img src="resource/House-quiz-3.png" alt="" class="w-full h-full object-cover">
+          <div class="absolute top-2.5 left-2.5 flex items-center gap-1 bg-black/40 backdrop-blur-sm text-white text-[0.62rem] font-semibold font-figtree px-2 py-0.5 rounded-full">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            2.32k
+          </div>
+          <div class="absolute top-2.5 right-2.5 bg-[#E8A020] text-white text-[0.62rem] font-bold font-figtree px-2.5 py-0.5 rounded-full">Medium</div>
+        </div>
+        <div class="px-4 pt-3 pb-4">
+          <p class="font-jakarta font-bold text-[0.92rem] text-gray-900 leading-snug mb-1.5">Quiz on Traditional Indonesian Houses</p>
+          <div class="flex items-center gap-2 mb-3.5">
+            <span class="font-figtree text-[0.72rem] text-gray-400">10 Questions</span>
+            <span class="font-jakarta font-bold text-[0.72rem] text-[#C94B2C]">+40 XP</span>
+          </div>
+          <hr class="mb-2">
+          <button class="w-full bg-[#C94B2C] hover:bg-[#b03d22] text-white font-jakarta font-bold text-[0.85rem] py-2.5 rounded-full transition-colors">Play Now</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── FOODS ── -->
+  <div>
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="font-jakarta font-bold text-[1.2rem] text-gray-900">Foods</h2>
+      <a href="#" class="font-figtree text-[0.82rem] font-semibold text-[#C94B2C] hover:opacity-75 transition-opacity">View All</a>
+    </div>
+
+    <div class="grid grid-cols-3 gap-5">
+
+      <!-- Card 1 -->
+      <div class="bg-white rounded-2xl overflow-hidden">
+        <div class="relative h-[170px] bg-gray-200 flex items-center justify-center">
+          <img src="resource/Food-quiz-1.png" alt="" class="w-full h-full object-cover">
+
+          <div class="absolute top-2.5 left-2.5 flex items-center gap-1 bg-black/40 backdrop-blur-sm text-white text-[0.62rem] font-semibold font-figtree px-2 py-0.5 rounded-full">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            12.54k
+          </div>
+          <div class="absolute top-2.5 right-2.5 bg-[#4CAF50] text-white text-[0.62rem] font-bold font-figtree px-2.5 py-0.5 rounded-full">Easy</div>
+        </div>
+        <div class="px-4 pt-3 pb-4">
+          <p class="font-jakarta font-bold text-[0.92rem] text-gray-900 leading-snug mb-1.5">Guess Indonesian Traditional Foods</p>
+          <div class="flex items-center gap-2 mb-3.5">
+            <span class="font-figtree text-[0.72rem] text-gray-400">16 Questions</span>
+            <span class="font-jakarta font-bold text-[0.72rem] text-[#C94B2C]">+60 XP</span>
+          </div>
+          <hr class="mb-2">
+          <button class="w-full bg-[#C94B2C] hover:bg-[#b03d22] text-white font-jakarta font-bold text-[0.85rem] py-2.5 rounded-full transition-colors">Play Now</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-2xl overflow-hidden">
+        <div class="relative h-[170px] bg-gray-200 flex items-center justify-center">
+          <img src="resource/Food-quiz-2.png" alt="" class="w-full h-full object-cover">
+
+          <div class="absolute top-2.5 left-2.5 flex items-center gap-1 bg-black/40 backdrop-blur-sm text-white text-[0.62rem] font-semibold font-figtree px-2 py-0.5 rounded-full">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            2.32k
+          </div>
+          <div class="absolute top-2.5 right-2.5 bg-[#E8A020] text-white text-[0.62rem] font-bold font-figtree px-2.5 py-0.5 rounded-full">Medium</div>
+        </div>
+        <div class="px-4 pt-3 pb-4">
+          <p class="font-jakarta font-bold text-[0.92rem] text-gray-900 leading-snug mb-1.5">Quiz Indonesian Traditional Foods</p>
+          <div class="flex items-center gap-2 mb-3.5">
+            <span class="font-figtree text-[0.72rem] text-gray-400">10 Questions</span>
+            <span class="font-jakarta font-bold text-[0.72rem] text-[#C94B2C]">+40 XP</span>
+          </div>
+          <hr class="mb-2">
+          <button class="w-full bg-[#C94B2C] hover:bg-[#b03d22] text-white font-jakarta font-bold text-[0.85rem] py-2.5 rounded-full transition-colors">Play Now</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white rounded-2xl overflow-hidden">
+        <div class="relative h-[170px] bg-gray-200 flex items-center justify-center">
+          <img src="resource/Food-quiz-3.png" alt="" class="w-full h-full object-cover">
+          <div class="absolute top-2.5 left-2.5 flex items-center gap-1 bg-black/40 backdrop-blur-sm text-white text-[0.62rem] font-semibold font-figtree px-2 py-0.5 rounded-full">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            820
+          </div>
+          <div class="absolute top-2.5 right-2.5 bg-[#E05C3A] text-white text-[0.62rem] font-bold font-figtree px-2.5 py-0.5 rounded-full">Hard</div>
+        </div>
+        <div class="px-4 pt-3 pb-4">
+          <p class="font-jakarta font-bold text-[0.92rem] text-gray-900 leading-snug mb-1.5">Indonesian Culinary Challenge</p>
+          <div class="flex items-center gap-2 mb-3.5">
+            <span class="font-figtree text-[0.72rem] text-gray-400">22 Questions</span>
+            <span class="font-jakarta font-bold text-[0.72rem] text-[#C94B2C]">+80 XP</span>
+          </div>
+          <hr class="mb-2">
+          <button class="w-full bg-[#C94B2C] hover:bg-[#b03d22] text-white font-jakarta font-bold text-[0.85rem] py-2.5 rounded-full transition-colors">Play Now</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
 
 <!-- ═══════════════ LEADERBOARD + DISCUSSION FORUM ═══════════════ -->
-<section class="px-[160px] pt-8 pb-20">
+<section class="px-[160px] pt-[110px] pb-20">
     <div class="max-w-[1080px] mx-auto">
   <div class="grid grid-cols-[1fr_1.3fr] gap-5">
 
@@ -658,4 +817,175 @@
  
   </div>
 </footer>   
+
+<div
+  id="quiz-modal"
+  onclick="handleQuizOverlay(event)"
+  class="fixed inset-0 z-[100] flex items-center justify-center p-6 hidden"
+  style="background:rgba(0,0,0,0.40); backdrop-filter:blur(4px);"
+>
+  <div
+    class="bg-[#FFF9F2] rounded-3xl overflow-hidden flex flex-col"
+    style="width:100%; max-width:1150px; max-height:800px; box-shadow:0 24px 64px rgba(0,0,0,0.18);"
+    onclick="event.stopPropagation()"
+  >
+ 
+    <!-- Header -->
+    <div class="flex items-center justify-between px-6 py-5 border-b border-gray-100 flex-shrink-0">
+      <p class="font-jakarta font-bold text-[1.2rem] text-gray-900">
+        Popular quizzes for Houses Category
+      </p>
+      <button
+        onclick="closeQuizModal()"
+        class="w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-800 transition-all flex-shrink-0"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+ 
+    <!-- Scrollable grid -->
+    <div class="overflow-y-auto flex-1 px-6 py-5" style="scrollbar-width:thin; scrollbar-color:#D4C8BE transparent;">
+      <div class="grid grid-cols-3 gap-6">
+ 
+        <!-- Card 1 -->
+        <div class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+          <div class="relative h-[200px] bg-gray-200 flex items-center justify-center">
+            <img src="resource/House-quiz-1.png" alt="" class="w-full h-full object-cover">
+            <div class="absolute top-2.5 left-2.5 flex items-center gap-1 bg-black/40 backdrop-blur-sm text-white text-[0.62rem] font-semibold font-figtree px-2 py-0.5 rounded-full">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              12.54k
+            </div>
+            <div class="absolute top-2.5 right-2.5 bg-[#4CAF50] text-white text-[0.62rem] font-bold font-figtree px-2 py-0.5 rounded-full">Easy</div>
+          </div>
+          <div class="px-3.5 pt-2.5 pb-3">
+            <p class="font-jakarta font-bold text-[0.88rem] text-gray-900 leading-snug mb-1">Guess the traditional Indonesian house</p>
+            <div class="flex items-center gap-1.5 mb-3">
+              <span class="font-figtree text-[0.68rem] text-gray-400">16 Questions</span>
+              <span class="font-jakarta font-bold text-[0.68rem] text-[#C94B2C]">+60 XP</span>
+            </div>
+            <hr class="mb-2">
+            <button class="w-full bg-[#C94B2C] hover:bg-[#b03d22] text-white font-jakarta font-bold text-[0.8rem] py-2 rounded-full transition-colors">Play Now</button>
+          </div>
+        </div>
+ 
+        <!-- Card 2 -->
+        <div class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+          <div class="relative h-[200px] bg-gray-200 flex items-center justify-center">
+            <img src="resource/House-quiz-2.png" alt="" class="w-full h-full object-cover">
+            <div class="absolute top-2.5 left-2.5 flex items-center gap-1 bg-black/40 backdrop-blur-sm text-white text-[0.62rem] font-semibold font-figtree px-2 py-0.5 rounded-full">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              820
+            </div>
+            <div class="absolute top-2.5 right-2.5 bg-[#E05C3A] text-white text-[0.62rem] font-bold font-figtree px-2 py-0.5 rounded-full">Hard</div>
+          </div>
+          <div class="px-3.5 pt-2.5 pb-3">
+            <p class="font-jakarta font-bold text-[0.88rem] text-gray-900 leading-snug mb-1">Challenges Facing Traditional House...</p>
+            <div class="flex items-center gap-1.5 mb-3">
+              <span class="font-figtree text-[0.68rem] text-gray-400">22 Questions</span>
+              <span class="font-jakarta font-bold text-[0.68rem] text-[#C94B2C]">+80 XP</span>
+            </div>
+            <hr class="mb-2">
+            <button class="w-full bg-[#C94B2C] hover:bg-[#b03d22] text-white font-jakarta font-bold text-[0.8rem] py-2 rounded-full transition-colors">Play Now</button>
+          </div>
+        </div>
+ 
+        <!-- Card 3 -->
+        <div class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+          <div class="relative h-[200px] bg-gray-200 flex items-center justify-center">
+            <img src="resource/House-quiz-3.png" alt="" class="w-full h-full object-cover">
+            <div class="absolute top-2.5 left-2.5 flex items-center gap-1 bg-black/40 backdrop-blur-sm text-white text-[0.62rem] font-semibold font-figtree px-2 py-0.5 rounded-full">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              2.32k
+            </div>
+            <div class="absolute top-2.5 right-2.5 bg-[#E8A020] text-white text-[0.62rem] font-bold font-figtree px-2 py-0.5 rounded-full">Medium</div>
+          </div>
+          <div class="px-3.5 pt-2.5 pb-3">
+            <p class="font-jakarta font-bold text-[0.88rem] text-gray-900 leading-snug mb-1">Quiz on Traditional Indonesian Houses</p>
+            <div class="flex items-center gap-1.5 mb-3">
+              <span class="font-figtree text-[0.68rem] text-gray-400">10 Questions</span>
+              <span class="font-jakarta font-bold text-[0.68rem] text-[#C94B2C]">+40 XP</span>
+            </div>
+            <hr class="mb-2">
+            <button class="w-full bg-[#C94B2C] hover:bg-[#b03d22] text-white font-jakarta font-bold text-[0.8rem] py-2 rounded-full transition-colors">Play Now</button>
+          </div>
+        </div>
+ 
+        <!-- Card 4 -->
+        <div class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+          <div class="relative h-[200px] bg-gray-200 flex items-center justify-center">
+            <img src="resource/House-quiz-4.png" alt="" class="w-full h-full object-cover">
+            <div class="absolute top-2.5 left-2.5 flex items-center gap-1 bg-black/40 backdrop-blur-sm text-white text-[0.62rem] font-semibold font-figtree px-2 py-0.5 rounded-full">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              12.54k
+            </div>
+            <div class="absolute top-2.5 right-2.5 bg-[#E8A020] text-white text-[0.62rem] font-bold font-figtree px-2 py-0.5 rounded-full">Medium</div>
+          </div>
+          <div class="px-3.5 pt-2.5 pb-3">
+            <p class="font-jakarta font-bold text-[0.88rem] text-gray-900 leading-snug mb-1">Traditional Betawi house</p>
+            <div class="flex items-center gap-1.5 mb-3">
+              <span class="font-figtree text-[0.68rem] text-gray-400">8 Questions</span>
+              <span class="font-jakarta font-bold text-[0.68rem] text-[#C94B2C]">+30 XP</span>
+            </div>
+            <hr class="mb-2">
+            <button class="w-full bg-[#C94B2C] hover:bg-[#b03d22] text-white font-jakarta font-bold text-[0.8rem] py-2 rounded-full transition-colors">Play Now</button>
+          </div>
+        </div>
+ 
+        <!-- Card 5 -->
+        <div class="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+          <div class="relative h-[200px] bg-gray-200 flex items-center justify-center">
+            <img src="resource/House-quiz-5.png" alt="" class="w-full h-full object-cover">
+            <div class="absolute top-2.5 left-2.5 flex items-center gap-1 bg-black/40 backdrop-blur-sm text-white text-[0.62rem] font-semibold font-figtree px-2 py-0.5 rounded-full">
+              <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              820
+            </div>
+            <div class="absolute top-2.5 right-2.5 bg-[#E05C3A] text-white text-[0.62rem] font-bold font-figtree px-2 py-0.5 rounded-full">Hard</div>
+          </div>
+          <div class="px-3.5 pt-2.5 pb-3">
+            <p class="font-jakarta font-bold text-[0.88rem] text-gray-900 leading-snug mb-1">Traditional Padang house</p>
+            <div class="flex items-center gap-1.5 mb-3">
+              <span class="font-figtree text-[0.68rem] text-gray-400">22 Questions</span>
+              <span class="font-jakarta font-bold text-[0.68rem] text-[#C94B2C]">+80 XP</span>
+            </div>
+            <hr class="mb-2">
+            <button class="w-full bg-[#C94B2C] hover:bg-[#b03d22] text-white font-jakarta font-bold text-[0.8rem] py-2 rounded-full transition-colors">Play Now</button>
+          </div>
+        </div>
+
+ 
+      </div>
+      <div class="flex justify-center mt-6 mb-0">
+          <button class="px-5 py-2 font-medium border border-[#D33F1D] rounded-full text-[#D33F1D] hover:bg-[#D33F1D] hover:text-white">
+              Load More
+          </button>
+      </div>
+
+    </div>
+ 
+  </div>
+</div>
+<button onclick="openQuizModal()" class="font-jakarta font-bold text-sm text-white bg-[#C94B2C] px-5 py-2.5 rounded-full">
+  Open Quiz Modal
+</button>
+<script>
+  function openQuizModal() {
+    document.getElementById('quiz-modal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+ 
+  function closeQuizModal() {
+    document.getElementById('quiz-modal').classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+ 
+  function handleQuizOverlay(e) {
+    if (e.target === document.getElementById('quiz-modal')) closeQuizModal();
+  }
+ 
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeQuizModal();
+  });
+</script>
 </body>
