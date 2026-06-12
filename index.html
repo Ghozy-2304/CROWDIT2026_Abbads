@@ -109,6 +109,22 @@
 
   /* nav pill active */
   .nav-pill-active { background: #C94B2C; color: #fff !important; }
+
+  .hb-item {
+    display: block;
+    width: 100%;
+    padding: 12px 24px;
+    text-align: left;
+    font-size: 16px;
+    color: #1c1917;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .hb-item:hover {
+    background: #fafaf9;
+  }
 </style>
 </head>
 <body>
@@ -142,11 +158,19 @@
         <span>2,480 XP</span>
       </div>
       <!-- Bell -->
-      <button class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:border-gray-300 transition-all">
+      <button class="hidden w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:border-gray-300 transition-all">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
       </button>
+
+      
+
       <!-- Avatar -->
-           <img class="w-9 h-9" src="resource/pp-rama.png" alt="">
+        <img class="w-9 h-9" src="resource/pp-rama.png" alt="">
+
+        <!-- Hamburger menu -->
+       <button class="block md:hidden w-9 h-9" onclick="toggleMenu()">
+          <img src="resource/Hamburger.png" alt="">
+        </button>
 
     </div>
 
@@ -1377,8 +1401,84 @@
   </div>
 </footer>
 
-<script>
+<!-- Overlay -->
+<div
+  id="hb-overlay"
+  onclick="closeMenu()"
+  class="fixed inset-0 z-40 bg-black/15 opacity-0 pointer-events-none transition-opacity duration-250"
+></div>
 
+<!-- Panel -->
+<div
+  id="hb-panel"
+  class="fixed top-20 right-4 z-50 w-56 bg-white rounded-3xl border border-stone-200 overflow-hidden
+         opacity-0 pointer-events-none scale-95 origin-top-right
+         transition-all duration-200 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+>
+  <!-- Nav Items -->
+  <nav class="pt-5 pb-2">
+    <button onclick="selectItem(this)" class="hb-item font-medium">Home</button>
+    <button onclick="selectItem(this)" class="hb-item">Activity</button>
+    <button onclick="selectItem(this)" class="hb-item">Class</button>
+    <button onclick="selectItem(this)" class="hb-item">Article</button>
+    <button onclick="selectItem(this)" class="hb-item">Folklore</button>
+  </nav>
+
+  <!-- Footer XP Badge -->
+  <div class="px-4 pb-4 pt-3 border-t border-stone-200">
+    <div class="flex items-center gap-2 bg-amber-200 text-amber-900 font-medium text-sm px-5 py-2.5 rounded-full w-full">
+      <p class="mx-auto"><span class="text-orange-500 text-base">🔥</span>
+      2,480 XP</p>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+  let isMenuOpen = false;
+
+  function toggleMenu() {
+    isMenuOpen ? closeMenu() : openMenu();
+  }
+
+  function openMenu() {
+    isMenuOpen = true;
+    const panel = document.getElementById('hb-panel');
+    const overlay = document.getElementById('hb-overlay');
+
+    overlay.classList.remove('opacity-0', 'pointer-events-none');
+    overlay.classList.add('opacity-100', 'pointer-events-auto');
+
+    panel.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
+    panel.classList.add('opacity-100', 'pointer-events-auto', 'scale-100');
+
+    document.querySelector('[data-hamburger]')?.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeMenu() {
+    isMenuOpen = false;
+    const panel = document.getElementById('hb-panel');
+    const overlay = document.getElementById('hb-overlay');
+
+    overlay.classList.add('opacity-0', 'pointer-events-none');
+    overlay.classList.remove('opacity-100', 'pointer-events-auto');
+
+    panel.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+    panel.classList.remove('opacity-100', 'pointer-events-auto', 'scale-100');
+
+    document.querySelector('[data-hamburger]')?.setAttribute('aria-expanded', 'false');
+  }
+
+  function selectItem(el) {
+    document.querySelectorAll('.hb-item').forEach(i => i.classList.remove('font-medium'));
+    el.classList.add('font-medium');
+    closeMenu();
+  }
+
+  // Tutup dengan Esc
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeMenu();
+  });
 
   // Scroll reveal
   var io = new IntersectionObserver(function(entries) {
