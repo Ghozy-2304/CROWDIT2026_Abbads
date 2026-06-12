@@ -596,7 +596,7 @@
       </div>
 
       <!-- You (highlighted) -->
-      <div class="flex items-center gap-3 px-4 py-3 rounded-2xl mb-3" style="background:#FDEAE4;">
+      <div class="flex items-center gap-3 px-4 py-3 rounded-full mb-3 border border-[#D98E74]" style="background:#FDEAE4;">
         <span class="font-figtree text-[0.78rem] text-[#C94B2C] font-bold w-4 text-center flex-shrink-0">12</span>
           <img class="w-7" src="resource/pp-rama.png" alt="">
         <p class="font-jakarta font-bold text-[0.875rem] text-gray-900 flex-1">You (Rama)</p>
@@ -717,22 +717,36 @@
         </p>
       </div>
 
-      <!-- Right: card with progress bar + button -->
-      <div class="flex-shrink-0 rounded-2xl p-4 flex flex-col gap-3" style="background:rgba(255,255,255,0.12); min-width:280px;">
-        <!-- Progress bar -->
-        <div class="h-[8px] rounded-full overflow-hidden" style="background:rgba(255,255,255,0.20);">
-          <div class="h-full rounded-full" style="width:64%; background:linear-gradient(90deg, #FFD060 0%, #FFB030 100%);"></div>
-        </div>
-        <!-- Labels -->
-        <div class="flex items-center justify-between">
-          <span class="font-figtree text-[0.75rem]" style="color:rgba(255,255,255,0.65);">9 of 14 lessons</span>
-          <span class="font-jakarta font-bold text-white text-[0.78rem]">64%</span>
-        </div>
-        <!-- Button -->
-        <button class="w-full font-jakarta font-bold text-[0.875rem] py-2.5 rounded-xl transition-all hover:opacity-90" style="background:white; color:#C94B2C;">
-          Resume Class
-        </button>
-      </div>
+      <div class="flex-shrink-0 rounded-2xl p-5 flex flex-col gap-4"
+     style="background:rgba(255,255,255,0.12); min-width:400px; min-height:150px;">
+
+  <!-- Progress bar -->
+  <div class="h-[8px] rounded-full overflow-hidden"
+       style="background:rgba(255,255,255,0.20);">
+    <div class="h-full rounded-full"
+         style="width:64%; background:linear-gradient(90deg, #FFD060 0%, #FFB030 100%);">
+    </div>
+  </div>
+
+  <!-- Labels -->
+  <div class="flex items-center justify-between">
+    <span class="font-figtree text-[0.75rem]"
+          style="color:rgba(255,255,255,0.65);">
+      9 of 14 lessons
+    </span>
+    <span class="font-jakarta font-bold text-white text-[0.78rem]">
+      64%
+    </span>
+  </div>
+
+  <!-- Button -->
+  <button
+    class="w-full h-[44px] mt-auto font-jakarta font-bold text-[0.875rem] py-2.5 rounded-full transition-all hover:opacity-90"
+    style="background:white; color:#C94B2C;">
+    Resume Class
+  </button>
+
+</div>
 
     </div>
   </div>
