@@ -158,7 +158,7 @@
         <span>2,480 XP</span>
       </div>
       <!-- Bell -->
-      <button class="hidden w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:border-gray-300 transition-all">
+      <button class="hidden md:flex w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:border-gray-300 transition-all">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
       </button>
 
@@ -1417,11 +1417,11 @@
 >
   <!-- Nav Items -->
   <nav class="pt-5 pb-2">
-    <button onclick="selectItem(this)" class="hb-item font-medium">Home</button>
-    <button onclick="selectItem(this)" class="hb-item">Activity</button>
-    <button onclick="selectItem(this)" class="hb-item">Class</button>
-    <button onclick="selectItem(this)" class="hb-item">Article</button>
-    <button onclick="selectItem(this)" class="hb-item">Folklore</button>
+    <button class="hb-item font-medium"><a href="index.html">Home</a></button>
+    <button class="hb-item"><a href="activity.html">Activity</a></button>
+    <button class="hb-item"><a href="class.html">Class</a></button>
+    <button class="hb-item"><a href="article.html">Article</a></button>
+    <button class="hb-item"><a href="folklore.html">Folklore</a></button>
   </nav>
 
   <!-- Footer XP Badge -->
@@ -1467,12 +1467,6 @@
     panel.classList.remove('opacity-100', 'pointer-events-auto', 'scale-100');
 
     document.querySelector('[data-hamburger]')?.setAttribute('aria-expanded', 'false');
-  }
-
-  function selectItem(el) {
-    document.querySelectorAll('.hb-item').forEach(i => i.classList.remove('font-medium'));
-    el.classList.add('font-medium');
-    closeMenu();
   }
 
   // Tutup dengan Esc
